@@ -2,9 +2,9 @@
 	<div>
 		<breadcrumb :title="project.title" :path="path"/>
 
-		<div class="portfolio-details-area">
+		<div class="container">
+			<div class="portfolio-details-area">
 			<!-- {{ project }} -->
-			<div class="container">
 				<no-ssr>
 					<carousel :perPage="1" :navigationEnabled="true">
 						<slide v-for="image in project.media" :key="image.id">
@@ -14,39 +14,27 @@
 				</no-ssr>
 			</div>
 
-			<div class="row mt-70">
-				<div class="col-md-4">
-					<ul class="project-details">
-						<li class="font-alt">Categories: <a href="#">Photography</a>,<a href="#">Design</a></li>
-						<li class="font-alt">Released: 23 November 2017</li>
-						<li class="font-alt">Online: <a href="#">www.site.com</a></li>
-						<li class="font-alt">Client: <a href="#">BasicTheme</a></li>
+			<div class="details">
+				<div class="facts">
+					<ul>
+						<li>Categories:
+							<span v-for="(type, index) in project.types">
+								<span v-if="index > 0">,</span><a href="#">{{ type }}</a>
+							</span>
+						</li>
+						<li v-if="project.releaseDate">Released: {{ releaseFormatted }}</li>
+						<li v-if="project.projectURL">Online: <a :href="project.projectURL" target="_blank">{{ project.projectURL }}</a></li>
+						<li v-if="project.client">Client: <a href="#">{{ project.client }}</a></li>
 					</ul>
-					<div class="portfolio-view-btn mt-20">
+					<div class="portfolio-view-btn">
 						<a class="btn" href="#">View Project</a>
 					</div>
 				</div>
-				<div class="col-md-8">
-					<div class="row multi-columns-row">
-						<div class="col-sm-6 col-md-6 mb-30">
-							<h5 class="font-alt m-t-0">Highly customizable</h5>
-							<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
-						</div>
 
-						<div class="col-sm-6 col-md-6 mb-30">
-							<h5 class="font-alt m-t-0">Responsive design</h5>
-							<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
-						</div>
-
-						<div class="col-sm-6 col-md-6 mb-30">
-							<h5 class="font-alt m-t-0">Optimised for speed</h5>
-							<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
-						</div>
-
-						<div class="col-sm-6 col-md-6 mb-30">
-							<h5 class="font-alt m-t-0">Features & plugins</h5>
-							<p>The European languages are members of the same family. Their separate existence is a myth. For science, music, sport, etc, Europe uses the same vocabulary.</p>
-						</div>
+				<div class="features">
+					<div class="feature" v-for="feature in project.features">
+						<h5 >{{ feature.title }}</h5>
+						<p>{{ feature.description }}</p>
 					</div>
 				</div>
 
@@ -68,11 +56,37 @@ img {
 .container {
 	width: 80vw;
 }
+
+.details {
+	margin-top: 70px;
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: auto;
+	grid-template-areas:
+		"facts features features"
+}
+
+.facts {
+	grid-area: facts;
+}
+.features {
+	grid-area: features;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.feature {
+	margin-bottom: 30px;
+	padding: 0 15px;
+	width: calc(50% - 30px);
+}
 </style>
 
 <script>
-import query from '~/apollo/queries/project.gql'
 import { Carousel, Slide } from 'vue-carousel'
+import dateFormat from 'dateformat'
+
+import query from '~/apollo/queries/project.gql'
 import components from '~/components'
 
 export default {
@@ -115,6 +129,11 @@ export default {
   		imageBase: 'https://media.graphcms.com',
 	  	imageWidth: 1400,
 	  	imageHeight: 1400*0.75
+  	}
+  },
+  computed: {
+  	releaseFormatted() {
+  		return dateFormat(this.project.releaseDate, 'mmmm dS, yyyy')
   	}
   },
   head() {

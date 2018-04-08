@@ -11,7 +11,7 @@
           <span class="dot"></span>
         </h2>
         
-        <p>Web development using modern technology. Clean Code. Performance. AI.</p>
+        <p>Modern technology. Clean code. High performance.</p>
         <a class="btn" href="#">About me</a>
       </div>
     </div>

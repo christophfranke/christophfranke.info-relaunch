@@ -2,6 +2,10 @@ query project($slug: String!) {
 	project: Project(slug: $slug) {
 	  isPublished
 	  title
+	  releaseDate
+	  projectURL
+	  types
+	  client
 	  media {
 	  	id
 	    sort

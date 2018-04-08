@@ -1,6 +1,5 @@
 <template>
   <div>
-  	Page: {{ page }} /Page
     <home-slide :imageHandle="page.headerImage.handle"/>
     <tiles />
     <service />
@@ -20,5 +19,10 @@ export default {
       variables: () => ({slug: 'home' })
   	}
   },
+  head() {
+  	return {
+  		title: this.page.title
+  	}
+  }
 };
 </script>
