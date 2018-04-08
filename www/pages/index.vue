@@ -1,6 +1,7 @@
 <template>
   <div>
-    <home-slide />
+  	Page: {{ page }} /Page
+    <home-slide :imageHandle="page.headerImage.handle"/>
     <tiles />
     <service />
   </div>
@@ -8,8 +9,16 @@
 
 <script>
 import components from '~/components';
+import query from '~/apollo/queries/page.gql'
 
 export default {
-  components
+  components,
+  apollo: {
+  	page: {
+	    query: query,
+			prefetch: () => ({slug: 'home' }),
+      variables: () => ({slug: 'home' })
+  	}
+  },
 };
 </script>

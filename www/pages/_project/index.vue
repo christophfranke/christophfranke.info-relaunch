@@ -85,7 +85,6 @@ export default {
   	project: {
 	    query: query,
 			prefetch: ({ route }) => {
-				console.log(route.params.project);
 				return {
 					slug: route.params.project
 				}

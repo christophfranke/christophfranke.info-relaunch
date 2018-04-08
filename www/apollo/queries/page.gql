@@ -1,11 +1,11 @@
 query page($slug: String!) {
-	pgae: Page(slug: $slug) {
+	page: Page(slug: $slug) {
 	  isPublished
 	  title
-	  media {
+	  headerImage {
 	  	id
 	    sort
-	    url
+	    handle
 	  }
 	  features(filter: {isPublished: true}) {
 	    title

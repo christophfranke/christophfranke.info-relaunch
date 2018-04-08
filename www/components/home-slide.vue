@@ -1,5 +1,5 @@
 <template>
-  <div class="basic-slider">
+  <div class="basic-slider" :style="imageStyle">
     <div class="container">
       <div class="slider-content text-white">
         <h2 class="cd-headline clip is-full-width">Hello, <br /> I am Christoph Franke &
@@ -25,9 +25,21 @@ export default {
       traits: ['Developer', 'Mathematician', 'Musician', 'Freelancer']
     }
   },
+  props: {
+    imageHandle: {
+      type: String,
+      required: true
+    }
+  },
   computed: {
     trait() {
       return this.traits[0]
+    },
+    imageStyle() {
+      const imageBase = 'https://media.graphcms.com'
+      const imageWidth = 1400
+      const imageHeight = 1400*0.75
+      return `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${this.imageHandle});`
     }
   }
 }
@@ -35,10 +47,6 @@ export default {
 
 <style lang="scss" scoped>
 @import '../scss/partials/slider';
-
-.basic-slider {
-  background-image: url('~/assets/header-image.jpg');
-}
 
 .slider-content {
   padding: 0 15px;
