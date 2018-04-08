@@ -10,6 +10,10 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@nuxtjs/apollo": "^3.0.6",
+    "apollo-link-http": "^1.5.3",
+    "graphql": "^0.13.2",
+    "graphql-tag": "^2.8.0",
     "node-sass": "^4.8.3",
     "nuxt": "^1.4.0",
     "sass-loader": "^6.0.7"

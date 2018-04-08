@@ -1,0 +1,204 @@
+.filter-menu{}
+.filter-menu button {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border: 0 none;
+  color: #444;
+  font-family: dosis;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0 15px;
+  padding: 6px 0;
+  position: relative;
+  text-transform: uppercase;
+}
+.filter-menu button::after {
+  background: #777 none repeat scroll 0 0;
+  bottom: -2px;
+  content: "";
+  height: 1px;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  right: 0;
+  transition: all 0.3s ease 0s;
+  width: 20px;
+}
+.filter-menu button.active:after , .filter-menu button:hover:after {opacity:1}
+.row-portfolio{margin:0 -10px}
+.row-portfolio .portfolio-item{padding: 0 10px;}
+.portfolio-wrapper {
+  position: relative;
+}
+.portfolio-item{
+  width: 33.33%;
+    /*float: left;*/
+    margin-bottom: 20px;  
+}
+.portfolio-thumb img {
+  width: 100%;
+}
+.portfolio-thumb {
+  position: relative;
+}
+.portfolio-thumb::before {
+  background: #fff none repeat scroll 0 0;
+  content: "";
+  height: 100%;
+  left: 0;
+  opacity: 0;
+  position: absolute;
+  top: 0;
+  transition: all 0.3s ease 0s;
+  width: 100%;
+}
+.portfolio-wrapper:hover .portfolio-thumb::before{opacity:.8}
+.view-icon {
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  opacity:0;
+  visibility:hidden;
+  z-index:9;
+  transition:.3s
+}
+.portfolio-wrapper:hover .view-icon{transform: translateY(-50%);opacity:1;visibility:visible}
+.view-icon > a {
+  background: #222 none repeat scroll 0 0;
+  border-radius: 50%;
+  color: #fff;
+  display: inline-block;
+  height: 40px;
+  line-height: 41px;
+  width: 40px;
+}
+.view-icon > a:hover{background:#666;}
+.portfolio-caption {
+  padding: 15px;
+}
+.portfolio-caption > h4 {
+  font-size: 18px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  margin-bottom: 5px;
+  padding-bottom: 9px;
+  position: relative;
+}
+.portfolio-caption > h4::before {
+  background: #444 none repeat scroll 0 0;
+  bottom: -1px;
+  content: "";
+  height: 1px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 26px;
+}
+.work-tag > a {
+  color: #555;
+  font-size: 13px;
+  letter-spacing: 1px;
+}
+.portfolio-caption {
+  padding: 15px;
+}
+.portfolio-caption {
+  padding: 15px;
+}
+.caption-border {
+  border: 1px solid #f6f6f6;
+}
+/* portfolio style 2 */
+.portfolio-style-2{}
+.portfolio-style-2 .portfolio-caption > h4::before {
+  display: none;
+}
+.portfolio-style-4 .portfolio-caption > h4::before {
+  display: block;
+}
+.portfolio-style-2 .portfolio-caption {
+  left: 0;
+  opacity: 0;
+  padding: 25px;
+  position: absolute;
+  right: 0;
+  top: 10px;
+  transition: all 0.3s ease 0s;
+  visibility: hidden;
+}
+.portfolio-wrapper:hover .portfolio-caption{opacity:1;visibility:visible;top:0}
+
+/* call to action */
+.call-to-action > h3 {
+  font-weight: 500;
+  letter-spacing: 1.5px;
+}
+.call-to-action > p {
+  margin: 0;
+}
+.call-to-action a {
+  margin-top: 12px;
+}
+/* portfolio-style-3 */
+.portfolio-style-3{}
+.portfolio-style-3 .portfolio-caption {
+  bottom: 20px;
+  top: inherit;
+}
+.portfolio-style-3 .portfolio-wrapper:hover .portfolio-caption {
+  bottom: 0;
+  top: inherit;
+}
+.row-portfolio.m-0{margin:0;}
+.portfolio-style-4 .portfolio-thumb::before {
+  background: #000 none repeat scroll 0 0;
+    bottom: 15px;
+  left: 15px;
+  right: 15px;
+  top: 15px;
+  height:inherit;
+  width:inherit;
+}
+.portfolio-style-4 .portfolio-caption > h4::before {
+  background: #fff none repeat scroll 0 0;
+  bottom: -1px;
+  content: "";
+  height: 1px;
+  left: 0;
+  margin: auto;
+  position: absolute;
+  right: 0;
+  width: 26px;
+}
+.portfolio-style-4 .portfolio-wrapper:hover .portfolio-thumb::before {
+  opacity: 0.9;
+}
+.portfolio-style-4 .portfolio-caption > h4 {
+  color: #fff;
+}
+.portfolio-style-4 .work-tag > a {
+  color: #fff;
+}
+.portfolio-style-4 .portfolio-caption {
+  bottom: 50%;
+  top: inherit;
+  transform:translateY(40%);
+}
+.portfolio-style-4 .portfolio-wrapper:hover .portfolio-caption {
+  transform:translateY(50%);
+  bottom:50%;
+}
+.portfolio-grid-2 .portfolio-item {
+  width: 50%;
+}
+.portfolio-grid-4 .portfolio-item{width:25%}
+.no-space .portfolio-item{margin-bottom:0;}
+.width-8{width: 66.6667%;}
+#related-active .portfolio-item {
+  width: 100%;
+  padding:0 10px;
+  margin-bottom:0;
+}
+.basic-separator{border-top:1px solid #ddd}

@@ -1,0 +1,39 @@
+$breakpoints: (
+	zero: 0,
+	xs: 320,
+	s: 520,
+	m: 780,
+	l: 1024,
+	xl: 1300,
+	inifinity: 99999,
+);
+
+@function next-value($map, $key) {
+	$list: map-keys($map);
+	$index: index($list, $key);
+	$next-key: nth($list, $index + 1);
+	@return map-get($map, $next-key);
+}
+
+@mixin from($breakpoint) {
+	$min-width: map-get($breakpoints, $breakpoint);
+	@media (min-width: #{$min-width}px) {
+		@content;
+	}
+}
+
+@mixin at($breakpoint) {
+	$min-width: map-get($breakpoints, $breakpoint);
+	$max-width: next-value($breakpoints, $breakpoint) - 1;
+	@media (min-width: #{$min-width}px) and (max-width: #{$max-width}px) {
+		@content;
+	}
+}
+
+@mixin until($breakpoint) {
+	$max-width: next-value($breakpoints, $breakpoint) - 1;
+	@media (max-width: #{$max-width}px) {
+		@content;
+	}
+}
+

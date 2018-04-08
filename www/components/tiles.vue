@@ -169,3 +169,8 @@
 		</div>
 	</div>
 </template>
+
+<style lang="scss" scoped>
+@import '../scss/partials/tiles';
+
+</style>

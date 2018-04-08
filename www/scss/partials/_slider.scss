@@ -1,0 +1,107 @@
+.basic-slider {
+  background-position: center center;
+  background-size: cover;
+  padding: 300px 0;
+}
+/*.slide-1 {
+  background: rgba(0, 0, 0, 0) url("img/slider/slider-1.jpg") repeat scroll right top;
+}
+.slide-2 {
+  background: rgba(0, 0, 0, 0) url("img/slider/slider-2.png") repeat scroll right center;
+}
+.slide-3 {
+  background: rgba(0, 0, 0, 0) url("img/slider/spring-t-shirts.jpg") repeat scroll right top / cover ;
+}
+.slide-4 {
+  background: rgba(0, 0, 0, 0) url("img/slider/slider-5.jpg") repeat scroll right top / cover ;
+}
+.slide-5 {
+  background: rgba(0, 0, 0, 0) url("img/slider/slider-6.jpg") repeat scroll right top / cover ;
+}
+.slide-6 {
+  background: rgba(0, 0, 0, 0) url("img/slider/slider-7.jpg") repeat scroll right top / cover ;
+}*/
+.slider-content h2 {
+  font-weight: 500;
+  letter-spacing: 5px;
+}
+.dot {
+  background: #444 none repeat scroll 0 0;
+  display: inline-block;
+  height: 5px;
+  width: 5px;
+}
+.slider-content.text-white h2 {
+  color: #fff;
+}
+.slider-content.text-white p {
+  color: #ddd;
+}
+.slider-content.black-bg-opacity {
+  background: rgba(0, 0, 0, 0.7) none repeat scroll 0 0;
+  display: inline-block;
+  padding: 70px 50px;
+  text-align: center;
+  outline: 1px solid rgba(0, 0, 0, 0.2);
+  outline-offset: -15px;
+  position:relative;
+}
+.slider-content.black-bg-opacity > h2 {
+  font-size: 30px;
+  line-height: 40px;
+  position: relative;
+}
+.slider-content.text-white.black-bg-opacity::before {
+  border: 1px solid #888;
+  bottom: 15px;
+  content: "";
+  left: 15px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+}
+.slider-white {
+  border-bottom: 1px solid #f5f5f5;
+  border-top: 1px solid #f5f5f5;
+  padding: 250px 0;
+}
+.basic-slider.slider-white {
+  background-position: center center;
+  background-size: cover;
+}
+.slider-white .slider-content{}
+.slider-white .slider-content h3 {
+  font-weight: 500;
+  letter-spacing: 3px;
+  line-height: 50px;
+  margin: 0;
+}
+.single-slider {
+  background: rgba(0, 0, 0, 0) none repeat scroll right center / cover ;
+  padding: 300px 0;
+}
+.border-t-b{border-top:1px solid #f5f5f5;border-bottom:1px solid #f5f5f5}
+.slider-screen {
+  background-position: center center;
+  background-size: cover;
+  height: 100vh;
+  padding: 0;
+  position: relative;
+}
+.slider-screen .slider-content {
+  left: 0;
+  position: absolute;
+  right: 0;
+  text-align: center;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 99;
+}
+.hero-social {
+  margin-top: 20px;
+}
+
+.hero-social > a {
+  font-size: 20px;
+  margin: 0 20px;
+}

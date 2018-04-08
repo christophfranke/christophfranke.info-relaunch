@@ -1,0 +1,14 @@
+query project($slug: String!) {
+	project: Project(slug: $slug) {
+	  isPublished
+	  title
+	  media {
+	    sort
+	    url
+	  }
+	  features(filter: {isPublished: true}) {
+	    title
+	    description
+	  }
+	}
+}

@@ -1,0 +1,5 @@
+query ProjectData {
+  allProjects {
+    slug
+  }
+}
