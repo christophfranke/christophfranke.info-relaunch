@@ -1,8 +1,8 @@
 <template>
   <div>
-    <Slider />
-    <Tiles />
-    <Service />
+    <home-slide />
+    <tiles />
+    <service />
   </div>
 </template>
 

@@ -1,14 +1,19 @@
 <template>
-	<pre>{{ project }}</pre>
-<!-- 	<div class="portfolio-details-area ptb-70">
-		<div class="container">
-			<div class="row">
-				<div class="col-md-12">
-					<div class="portfolio-full-img">
-						<img src="img/portfolio/details/1.jpg" alt="" />
-					</div>
-				</div>
+	<div>
+		<breadcrumb :title="project.title" :path="path"/>
+
+		<div class="portfolio-details-area">
+			<!-- {{ project }} -->
+			<div class="container">
+				<no-ssr>
+					<carousel :perPage="1" :navigationEnabled="true">
+						<slide v-for="image in project.media" :key="image.id">
+							<img :src="`${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${image.handle}`" />
+						</slide>
+					</carousel>
+				</no-ssr>
 			</div>
+
 			<div class="row mt-70">
 				<div class="col-md-4">
 					<ul class="project-details">
@@ -44,24 +49,38 @@
 						</div>
 					</div>
 				</div>
+
 			</div>
 		</div>
-	</div> -->
+	</div>
 </template>
 
-<script>
-// import gql from 'graphql-tag'
+<style lang="scss" scoped>
+@import '../../scss/partials/project';
 
-// const query = gql`
-// query project($slug: String!) {
-//   project: Project(slug: $slug) {
-//     id
-//   }
-// }
-// `
+.portfolio-details-area {
+	padding: 70px 0;
+}
+img {
+	width: 100%;
+}
+
+.container {
+	width: 80vw;
+}
+</style>
+
+<script>
 import query from '~/apollo/queries/project.gql'
+import { Carousel, Slide } from 'vue-carousel'
+import components from '~/components'
 
 export default {
+  components: {
+    Carousel,
+    Slide,
+    ...components
+  },
   apollo: {
   	project: {
 	    query: query,
@@ -74,6 +93,34 @@ export default {
       variables() {
         return { slug: this.$route.params.project }
       }
+  	}
+  },
+  mounted() {
+  	if (window) {
+  		this.imageWidth = Math.round(window.innerWidth * 0.8);
+  		this.imageHeight = Math.round(this.imageWidth * 0.5);
+  	}
+  },
+  data() {
+  	return {
+  		path: [
+  		{
+  			slug: '/',
+  			title: 'Home'
+  		},
+  		{
+  			slug: '/porfolio',
+  			title: 'Portfolio'
+  		}
+  		],
+  		imageBase: 'https://media.graphcms.com',
+	  	imageWidth: 1400,
+	  	imageHeight: 1400*0.75
+  	}
+  },
+  head() {
+  	return {
+  		title: this.project.title
   	}
   }
 }

@@ -1,0 +1,18 @@
+.basic-breadcrumb-area{}
+.basic-breadcrumb > h3 {
+  font-size: 25px;
+  font-weight: 600;
+  letter-spacing: 6px;
+}
+.white-text .basic-breadcrumb > h3 {
+  color: #fff;
+}
+.breadcrumb {
+  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+  border-radius: 0;
+  margin-bottom: 0;
+}
+.white-text .breadcrumb > .active {
+  color: #ddd;
+}
+.white-text .breadcrumb li a{color: #fff}

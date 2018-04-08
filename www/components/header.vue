@@ -23,9 +23,8 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+@import '../scss/base';
 .header-area {
-	padding: 0 15px;
-	width: 92.5vw;
-	margin: 0 auto;
+	@extend .container;
 }
 </style>

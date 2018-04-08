@@ -1,11 +1,11 @@
-query project($slug: String!) {
-	project: Project(slug: $slug) {
+query page($slug: String!) {
+	pgae: Page(slug: $slug) {
 	  isPublished
 	  title
 	  media {
 	  	id
 	    sort
-	    handle
+	    url
 	  }
 	  features(filter: {isPublished: true}) {
 	    title
