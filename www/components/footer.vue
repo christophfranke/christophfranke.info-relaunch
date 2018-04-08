@@ -1,9 +1,9 @@
 <template>
   <footer>
-    <div class="basic-footer text-center ptb-90">
+    <div class="basic-footer">
       <div class="container">
-        <div class="footer-logo mb-30">
-          <h3><a href="index.html">prince</a></h3>
+        <div class="footer-logo">
+          <h3><nuxt-link to="/">Christoph Franke</nuxt-link></h3>
         </div>
         <div class="social-icon">
           <a href="#"><i class="ion-social-facebook"></i></a>
@@ -11,21 +11,40 @@
           <a href="#"><i class="ion-social-instagram"></i></a>
           <a href="#"><i class="ion-social-dribbble"></i></a>
         </div>
-        <div class="footer-menu mt-30">
+        <div class="footer-menu">
           <nav>
             <ul>
-              <li><a href="#">Home</a></li>
-              <li><a href="#">Portfolio</a></li>
-              <li><a href="#">About</a></li>
-              <li><a href="#">Blog</a></li>
-              <li><a href="#">Contact</a></li>
+              <li><nuxt-link to="/">Home</nuxt-link></li>
+              <li><nuxt-link to="/portfolio">Portfolio</nuxt-link></li>
+              <li><nuxt-link to="/about">About</nuxt-link></li>
+              <li><nuxt-link to="/contact">Contact</nuxt-link></li>
             </ul>
           </nav>
         </div>
-        <div class="copyright mt-20">
+        <div class="copyright">
           <p>All copyright © reserved by <a href="#">BasicTheme</a> 2018</p>
         </div>
       </div>
     </div>
   </footer>	
 </template>
+
+<style lang="scss" scoped>
+@import '../scss/partials/footer';
+
+.basic-footer {
+  padding: 90px 0;
+  text-align: center;
+  background-color: #f6f6f6;
+}
+.footer-logo {
+  margin-bottom: 30px;
+}
+.footer-menu {
+  margin-top: 30px;
+}
+.copyright {
+  margin-top: 20px;
+}
+
+</style>

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-slide :imageHandle="page.headerImage.handle"/>
+    <home-slide :imageHandle="page.headerImage.handle" v-if="!$apollo.loading"/>
     <tiles />
     <service />
   </div>
@@ -17,11 +17,18 @@ export default {
 	    query: query,
 			prefetch: () => ({slug: 'home' }),
       variables: () => ({slug: 'home' })
-  	}
+  	},
   },
   head() {
   	return {
   		title: this.page.title
+  	}
+  },
+  data() {
+  	return {
+  		page: {
+  			title: '...'
+  		}
   	}
   }
 };
