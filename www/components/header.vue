@@ -2,7 +2,7 @@
 	<header>
 	  <div class="header-area headroom">
 	    <div class="menu-area">
-	    	<Desktop />
+	    	<Desktop/>
 	    </div>
 	    <div class="basic-mobile-menu">
 	    	<Mobile />
@@ -15,10 +15,21 @@
 </template>
 
 <script>
-import components from './header/index.js';
+import components from './header/index.js'
+import query from '~/apollo/queries/menu.gql'
 
 export default {
-	components
+	components,
+	apollo: {
+		pages: {
+			prefetch: true,
+			query: query
+		},
+		projects: {
+			prefetch: true,
+			query: query
+		}
+	}
 }
 </script>
 

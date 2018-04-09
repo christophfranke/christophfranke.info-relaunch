@@ -1,117 +1,18 @@
 <template>
 	<nav>
 	  <ul class="basic-menu clearfix">
-	    <li><a href="index.html">Home</a>
-	      <ul>
-	        <li><a href="index.html">Home Style 1 </a></li>
-	        <li><a href="index-2.html">Home Style 2</a></li>
-	        <li><a href="index-3.html">Home Style 3</a></li>
-	        <li><a href="index-4.html">Home Style 4</a></li>
-	        <li><a href="index-5.html">Home Style 5</a></li>
-	        <li><a href="index-6.html">Home Style 6</a></li>
-	        <li><a href="index-7.html">Home Style 7</a></li>
-	        <li><a href="index-8.html">Home Style 8</a></li>
-	        <li><a href="index-9.html">Home Style 9</a></li>
-	        <li><a href="index-10.html">Home Style 10</a></li>
-	        <li><a href="index-11.html">Home Style 11</a></li>
-	        <li><a href="index-12.html">Home Style 12</a></li>
-	      </ul>
-	    </li>
-	    <li><a href="about.html">about</a></li>
+	    <li><nuxt-link to="/">Home</nuxt-link></li>
+	    <li><nuxt-link to="/about">About me</nuxt-link></li>
 	    <!-- PORTFOLIO -->
 	    <li>
-	      <a href="portfolio-grid-3-cols.html">Portfolio</a>
+	      <nuxt-link to="/portfolio">Portfolio</nuxt-link>
 	      <ul>
 	        <li>
-	          <a href="#">Grid <i class="fa fa-angle-right"></i></a>
+	          <nuxt-link to="/portfolio/websites">Websites <i class="fa fa-angle-right"></i></nuxt-link>
 	          <ul>
-	            <li><a href="portfolio-grid-2-cols.html">2 Columns</a></li>
-	            <li><a href="portfolio-grid-3-cols.html">3 Columns</a></li>
-	            <li><a href="portfolio-grid-4-cols.html">4 Columns</a></li>
+	            <li><nuxt-link to="portfolio-grid-2-cols.html">2 Columns</nuxt-link></li>
 	          </ul>
 	        </li>
-
-	        <li>
-	          <a href="#">Grid No Space <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-grid-2-cols-nospace.html">2 Columns</a></li>
-	            <li><a href="portfolio-grid-3-cols-nospace.html">3 Columns</a></li>
-	            <li><a href="portfolio-grid-4-cols-nospace.html">4 Columns</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Wide Grid <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-wide-grid-2-cols.html">2 Columns</a></li>
-	            <li><a href="portfolio-wide-grid-3-cols.html">3 Columns</a></li>
-	            <li><a href="portfolio-wide-grid-4-cols.html">4 Columns</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Wide Grid No Space <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-wide-grid-2-cols-nospace.html">2 Columns</a></li>
-	            <li><a href="portfolio-wide-grid-3-cols-nospace.html">3 Columns</a></li>
-	            <li><a href="portfolio-wide-grid-4-cols-nospace.html">4 Columns</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Masonry <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-masonry-2-cols.html">2 Columns</a></li>
-	            <li><a href="portfolio-masonry-3-cols.html">3 Columns</a></li>
-	            <li><a href="portfolio-masonry-4-cols.html">4 Columns</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Masonry No Space <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-masonry-2-cols-nospace.html">2 Columns</a></li>
-	            <li><a href="portfolio-masonry-3-cols-nospace.html">3 Columns</a></li>
-	            <li><a href="portfolio-masonry-4-cols-nospace.html">4 Columns</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Wide Masonry <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-wide-masonry-2-cols.html">2 Columns</a></li>
-	            <li><a href="portfolio-wide-masonry-3-cols.html">3 Columns</a></li>
-	            <li><a href="portfolio-wide-masonry-4-cols.html">4 Columns</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Wide Masonry No Space <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-wide-masonry-2-cols-nospace.html">2 Columns</a></li>
-	            <li><a href="portfolio-wide-masonry-3-cols-nospace.html">3 Columns</a></li>
-	            <li><a href="portfolio-wide-masonry-4-cols-nospace.html">4 Columns</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Mosaic <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="mosaic-portfolio-1.html">Mosaic Grid</a></li>
-	            <li><a href="mosaic-portfolio-2.html">Mosaic No Space</a></li>
-	          </ul>
-	        </li>
-
-	        <li>
-	          <a href="#">Single Work <i class="fa fa-angle-right"></i></a>
-	          <ul>
-	            <li><a href="portfolio-single.html">Single 1</a></li>
-	            <li><a href="portfolio-single-2.html">Single 2</a></li>
-	            <li><a href="portfolio-single-3.html">Single 3</a></li>
-	            <li><a href="portfolio-single-4.html">Single 4</a></li>
-	          </ul>
-	        </li>
-
 	      </ul>
 	    </li>
 	    <!-- END PORTFOLIO -->
@@ -192,3 +93,9 @@ nav {
 	}
 }
 </style>
+
+<script>
+export default {
+	props: ['pages', 'projects']
+}
+</script>

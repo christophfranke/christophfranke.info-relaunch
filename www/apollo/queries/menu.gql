@@ -1,0 +1,10 @@
+query ProjectData {	
+  pages: allPages {
+  	title
+    slug
+  }
+  projects: allProjects {
+  	title
+    slug
+  }
+}

@@ -19,6 +19,15 @@ export default {
       variables: () => ({slug: 'home' })
   	},
   },
+  fetch() {
+  	console.log('fetching...')
+  	return new Promise((resolve) => {
+  		setTimeout(() => {
+  			console.log('done')
+  			resolve()
+  		}, 2000)
+  	})
+  },
   head() {
   	return {
   		title: this.page.title
