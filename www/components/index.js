@@ -4,6 +4,7 @@ import Tiles from './tiles.vue';
 import Service from './service.vue';
 import Footer from './footer.vue';
 import Breadcrumb from './breadcrumb.vue';
+import Asdf from './lazy-image.vue';
 
 export default {
 	Header,
@@ -11,5 +12,6 @@ export default {
 	Tiles,
 	Service,
 	Footer,
-	Breadcrumb
+	Breadcrumb,
+	Asdf,
 }

@@ -6,13 +6,10 @@
           <span class="cd-words-wrapper">
             <b>{{ trait }}</b>
           </span>
-          <span class="dot"></span> 
-          <span class="dot"></span>
-          <span class="dot"></span>
         </h2>
         
         <p>Modern technology. Clean code. High performance.</p>
-        <a class="btn" href="#">About me</a>
+        <nuxt-link class="btn" to="/about">About me</nuxt-link>
       </div>
     </div>
   </div>

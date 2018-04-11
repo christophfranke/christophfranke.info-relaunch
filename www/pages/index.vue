@@ -1,32 +1,29 @@
 <template>
   <div>
     <home-slide :imageHandle="page.headerImage.handle" v-if="!$apollo.loading"/>
-    <tiles />
+    <tiles :projects="projects" />
     <service />
   </div>
 </template>
 
 <script>
 import components from '~/components';
-import query from '~/apollo/queries/page.gql'
+import page from '~/apollo/queries/page.gql'
+import projects from '~/apollo/queries/allProjects.gql'
+
 
 export default {
   components,
   apollo: {
   	page: {
-	    query: query,
+	    query: page,
 			prefetch: () => ({slug: 'home' }),
       variables: () => ({slug: 'home' })
   	},
-  },
-  fetch() {
-  	console.log('fetching...')
-  	return new Promise((resolve) => {
-  		setTimeout(() => {
-  			console.log('done')
-  			resolve()
-  		}, 2000)
-  	})
+    projects: {
+      query: projects,
+      prefetch: () => {},
+    }
   },
   head() {
   	return {
@@ -37,7 +34,8 @@ export default {
   	return {
   		page: {
   			title: '...'
-  		}
+  		},
+      projects: [],
   	}
   }
 };

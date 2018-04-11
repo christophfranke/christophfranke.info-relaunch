@@ -1,0 +1,11 @@
+query ProjectTiles {
+  projects: allProjects {
+	  title
+	  types
+	  slug
+	  media {
+	    sort
+	    handle
+	  }	  
+  }
+}

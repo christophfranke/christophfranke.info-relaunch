@@ -19,12 +19,12 @@
 					<ul>
 						<li>Categories:
 							<span v-for="(type, index) in project.types">
-								<span v-if="index > 0">,</span><a href="#">{{ type }}</a>
+								<span v-if="index > 0">,</span><nuxt-link :to="typeUrl(type)">{{ type }}</nuxt-link>
 							</span>
 						</li>
 						<li v-if="project.releaseDate">Released: {{ releaseFormatted }}</li>
 						<li v-if="project.projectURL">Online: <a :href="project.projectURL" target="_blank">{{ project.projectURL }}</a></li>
-						<li v-if="project.client">Client: <a href="#">{{ project.client }}</a></li>
+						<li v-if="project.client">Client: {{ project.client }}</li>
 					</ul>
 					<div class="portfolio-view-btn">
 						<a class="btn" href="#">View Project</a>
@@ -86,8 +86,9 @@ img {
 import { Carousel, Slide } from 'vue-carousel'
 import dateFormat from 'dateformat'
 
-import query from '~/apollo/queries/project.gql'
 import components from '~/components'
+import query from '~/apollo/queries/project.gql'
+
 
 export default {
   components: {
@@ -114,6 +115,9 @@ export default {
   		this.imageHeight = Math.round(this.imageWidth * 0.5);
   	}
   },
+  methods: {
+  	typeUrl: (type) => `/portolfio/${type}`.toLowerCase()
+  },
   data() {
   	return {
   		path: [
@@ -128,7 +132,10 @@ export default {
   		],
   		imageBase: 'https://media.graphcms.com',
 	  	imageWidth: 1400,
-	  	imageHeight: 1400*0.75
+	  	imageHeight: 1400*0.75,
+	  	project: {
+	  		title: '...',
+	  	},
   	}
   },
   computed: {

@@ -1,169 +1,31 @@
 <template>
-	<div class="basic-portfolio-area ptb-90">
+	<div class="basic-portfolio-area">
 		<div class="container">
-			<div class="filter-menu text-center mb-40">
-				<button class="active" data-filter="*">ALL</button>
-				<button data-filter=".branding">Branding </button>
-				<button data-filter=".graphic">Graphic</button>
-				<button data-filter=".design">Design </button>
-				<button data-filter=".video">Video</button>
+			<div class="filter-menu">
+				<button class="active">ALL</button>
+				<button v-for="type in types">{{ type }}</button>
 			</div>			
+
 			<div id="portfolio-grid" class="row-portfolio portfolio-style-2 portfolio-style-3">
-				<div class="portfolio-item branding video">
+
+				<div class="portfolio-item graphic" v-for="project in projects">
 					<div class="portfolio-wrapper">
 						<div class="portfolio-thumb">
-							<img src="img/portfolio/project1.jpg" alt="" />
-							<div class="view-icon">
-								<a class="popup-link" href="img/portfolio/project1.jpg"><span class="icon-focus"></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item graphic">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/m-project2.jpg" alt="" />
+							<lazy-image :handle="project.media[0].handle" />
 							<div class="view-icon">
 								<a class="popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4"><span class="icon-video "></span></a>									
 							</div>
 						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
+						<div class="portfolio-caption">
+							<h4><nuxt-link :to="slugUrl(project.slug)">{{ project.title }}</nuxt-link></h4>
 							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item video">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/project2.jpg" alt="" />
-							<div class="view-icon">
-								<a class="popup-link" href="img/portfolio/project2.jpg"><span class="icon-focus"></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item graphic">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/m-project1.jpg" alt="" />
-							<div class="view-icon">
-								<a href="portfolio-single.html"><span class="icon-attachment"></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item branding design">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/m-project3.jpg" alt="" />
-							<div class="view-icon">
-								<a class="popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4"><span class="icon-video "></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item graphic video">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/project4.jpg" alt="" />
-							<div class="view-icon">
-								<a href="portfolio-single.html"><span class="icon-attachment"></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item branding design">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/project5.jpg" alt="" />
-							<div class="view-icon">
-								<a class="popup-link" href="img/portfolio/project5.jpg"><span class="icon-focus"></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/project6.jpg" alt="" />
-							<div class="view-icon">
-								<a class="popup-link" href="img/portfolio/project6.jpg"><span class="icon-focus"></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="portfolio-item design">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<img src="img/portfolio/project7.jpg" alt="" />
-							<div class="view-icon">
-								<a href="portfolio-single.html"><span class="icon-attachment"></span></a>
-							</div>
-						</div>
-						<div class="portfolio-caption text-left">
-							<h4><a href="portfolio-single.html">Basic Portfolio Tile</a></h4>
-							<div class="work-tag">
-								<a href="#">Design</a>,
-								<a href="#">Photography</a>
+								<nuxt-link :to="typeUrl(type)" v-for="type in project.types">{{ type }}</nuxt-link>
 							</div>
 						</div>
 					</div>
 				</div>
 			</div>
-			<div class="view-more mt-20 text-center">
+			<div class="view-more">
 				<a class="btn btn-large" href="#">View More</a>
 			</div>			
 		</div>
@@ -172,5 +34,39 @@
 
 <style lang="scss" scoped>
 @import '../scss/partials/tiles';
-
+.basic-portfolio-area {
+	padding: 90px 0;
+}
+.filter-menu {
+	text-align: center;
+	margin-bottom: 40px;
+}
+.view-more {
+	margin-top: 20px;
+	text-align: center;
+}
 </style>
+
+<script>
+import lazyImage from './lazy-image.vue';
+
+export default {
+	components: {
+		lazyImage
+	},
+	props: {
+		projects: {
+			type: Array,
+			default: [],
+		},
+		types: {
+			tpye: Array,
+			default: () => ['Online Shop', 'Video Game', 'High Performance Computing', 'Website']
+		}
+	},
+	methods: {
+		typeUrl: (type) => `/portfolio/${type}`.toLowerCase(),
+		slugUrl: (slug) => `/${slug}`
+	}
+}
+</script>

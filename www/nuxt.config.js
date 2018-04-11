@@ -11,5 +11,6 @@ module.exports = {
 	  		'/emerged-agency-relaunch',
 	  	]
 	  }
-  }
+  },
+  loading: false,
 }
