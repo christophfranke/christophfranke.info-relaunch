@@ -19,7 +19,7 @@
 					<ul>
 						<li>Categories:
 							<span v-for="(type, index) in project.types">
-								<span v-if="index > 0">,</span><nuxt-link :to="typeUrl(type)">{{ type }}</nuxt-link>
+								<span v-if="index > 0">, </span><nuxt-link :to="typeUrl(type)">{{ type }}</nuxt-link>
 							</span>
 						</li>
 						<li v-if="project.releaseDate">Released: {{ releaseFormatted }}</li>
@@ -27,7 +27,10 @@
 						<li v-if="project.client">Client: {{ project.client }}</li>
 					</ul>
 					<div class="portfolio-view-btn">
-						<a class="btn" href="#">View Project</a>
+						<span v-for="cta in project.callToActions" :key="cta.url">
+							<a class="btn" :href="cta.url" target="_blank" v-if="!cta.internalLink">{{ cta.text || cta.url }}</a>
+							<nuxt-link class="btn" :to="cta.url" v-if="cta.internalLink">{{ cta.text || cta.url }}</nuxt-link>
+						</span>
 					</div>
 				</div>
 
@@ -116,7 +119,7 @@ export default {
   	}
   },
   methods: {
-  	typeUrl: (type) => `/portolfio/${type}`.toLowerCase()
+  	typeUrl: (type) => `/portfolio/${type}`.toLowerCase()
   },
   data() {
   	return {
@@ -126,7 +129,7 @@ export default {
   			title: 'Home'
   		},
   		{
-  			slug: '/porfolio',
+  			slug: '/portfolio',
   			title: 'Portfolio'
   		}
   		],

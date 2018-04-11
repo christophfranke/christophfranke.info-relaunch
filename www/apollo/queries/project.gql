@@ -15,5 +15,10 @@ query project($slug: String!) {
 	    title
 	    description
 	  }
+	  callToActions {
+	  	text
+	  	url
+	  	internalLink
+	  }
 	}
 }
