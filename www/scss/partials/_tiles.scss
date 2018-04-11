@@ -1,29 +1,3 @@
-.filter-menu{}
-.filter-menu button {
-  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
-  border: 0 none;
-  color: #444;
-  font-family: dosis;
-  font-weight: 700;
-  letter-spacing: 2px;
-  margin: 0 15px;
-  padding: 6px 0;
-  position: relative;
-  text-transform: uppercase;
-}
-.filter-menu button::after {
-  background: #777 none repeat scroll 0 0;
-  bottom: -2px;
-  content: "";
-  height: 1px;
-  left: 0;
-  opacity: 0;
-  position: absolute;
-  right: 0;
-  transition: all 0.3s ease 0s;
-  width: 20px;
-}
-.filter-menu button.active:after , .filter-menu button:hover:after {opacity:1}
 .row-portfolio{margin:0 -10px}
 .row-portfolio .portfolio-item{padding: 0 10px;}
 .portfolio-wrapper {

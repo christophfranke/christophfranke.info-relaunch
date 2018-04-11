@@ -6,24 +6,8 @@
 				<button v-for="type in types">{{ type }}</button>
 			</div>			
 
-			<div id="portfolio-grid" class="row-portfolio portfolio-style-2 portfolio-style-3">
-
-				<div class="portfolio-item graphic" v-for="project in projects">
-					<div class="portfolio-wrapper">
-						<div class="portfolio-thumb">
-							<lazy-image :handle="project.media[0].handle" />
-							<div class="view-icon">
-								<a class="popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4"><span class="icon-video "></span></a>									
-							</div>
-						</div>
-						<div class="portfolio-caption">
-							<h4><nuxt-link :to="slugUrl(project.slug)">{{ project.title }}</nuxt-link></h4>
-							<div class="work-tag">
-								<nuxt-link :to="typeUrl(type)" v-for="type in project.types">{{ type }}</nuxt-link>
-							</div>
-						</div>
-					</div>
-				</div>
+			<div class="row-portfolio portfolio-style-2 portfolio-style-3">
+				<tile v-for="project in projects" :project="project" :key="project.slug" />
 			</div>
 			<div class="view-more">
 				<a class="btn btn-large" href="#">View More</a>
@@ -33,26 +17,51 @@
 </template>
 
 <style lang="scss" scoped>
-@import '../scss/partials/tiles';
 .basic-portfolio-area {
 	padding: 90px 0;
 }
-.filter-menu {
+.filter-menu{
 	text-align: center;
 	margin-bottom: 40px;
-}
-.view-more {
-	margin-top: 20px;
-	text-align: center;
+	button {
+	  background: rgba(0, 0, 0, 0) none repeat scroll 0 0;
+	  border: 0 none;
+	  color: #444;
+	  font-family: dosis;
+	  font-weight: 700;
+	  letter-spacing: 2px;
+	  margin: 0 15px;
+	  padding: 6px 0;
+	  position: relative;
+	  text-transform: uppercase;
+		&::after {
+		  background: #777 none repeat scroll 0 0;
+		  bottom: -2px;
+		  content: "";
+		  height: 1px;
+		  left: 0;
+		  opacity: 0;
+		  position: absolute;
+		  right: 0;
+		  transition: all 0.3s ease 0s;
+		  width: 20px;
+		}
+		&.active:after,
+		&:hover:after {
+			opacity:1
+		}
+	}
 }
 </style>
 
 <script>
 import lazyImage from './lazy-image.vue';
+import tile from './tile.vue';
 
 export default {
 	components: {
-		lazyImage
+		lazyImage,
+		tile
 	},
 	props: {
 		projects: {
@@ -63,10 +72,6 @@ export default {
 			tpye: Array,
 			default: () => ['Online Shop', 'Video Game', 'High Performance Computing', 'Website']
 		}
-	},
-	methods: {
-		typeUrl: (type) => `/portfolio/${type}`.toLowerCase(),
-		slugUrl: (slug) => `/${slug}`
 	}
 }
 </script>
