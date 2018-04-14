@@ -1,5 +1,7 @@
 <template>
-	<img :src="src" v-if="handle">
+	<no-ssr>
+		<img :src="src" v-if="handle">
+	</no-ssr>
 </template>
 
 <script>
@@ -14,15 +16,45 @@ export default {
 			type: String,
 			default: 'https://media.graphcms.com'
 		},
-		width: {
+		align: {
+			type: String,
+			default: 'top'
+		},
+		aspectRatio: {
 			type: Number,
-			default: 0,
-		}
+			default: 0
+		},
 	},
 	computed: {
+		size() {
+			if (!this.mounted) {
+				return null
+			}
+			const img = this.$el
+			return img ? {
+				width: img.clientWidth,
+				height: Math.round(this.aspectRatio * img.clientWidth)
+			} : null
+		},
 		src() {
-			return this.handle ? `${this.baseUrl}/${this.handle}`: '';
+			if (this.handle && this.size) {
+				if (this.size.height) {
+					return `${this.baseUrl}/resize=fit:crop,align:${this.align},w:${this.size.width},h:${this.size.height}/${this.handle}`
+				} else {
+					return `${this.baseUrl}/resize=w:${this.size.width}/${this.handle}`
+				}
+			} else {
+				return ''
+			}
+		},
+	},
+	data() {
+		return {
+			mounted: false
 		}
+	},
+	mounted() {
+		this.mounted = true
 	}
 }
 </script>

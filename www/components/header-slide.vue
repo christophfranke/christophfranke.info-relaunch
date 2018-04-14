@@ -18,7 +18,8 @@ export default {
   },
   data() {
     return {
-      traits: ['Developer', 'Mathematician', 'Musician', 'Freelancer']
+      traits: ['Developer', 'Mathematician', 'Musician', 'Freelancer'],
+      mounted: false
     }
   },
   props: {
@@ -32,11 +33,17 @@ export default {
       return this.traits[0]
     },
     imageStyle() {
-      const imageBase = 'https://media.graphcms.com'
-      const imageWidth = 1400
-      const imageHeight = 1400 * 0.75
-      return this.header.image ? `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${this.header.image.handle});`:''
+      if (this.mounted) {      
+        const imageBase = 'https://media.graphcms.com'
+        const imageWidth = this.$el.clientWidth
+        const imageHeight = Math.round(imageWidth * 0.75)
+        return this.header.image ? `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${this.header.image.handle});`:''
+      }
+      return ''
     }
+  },
+  mounted() {
+    this.mounted = true
   }
 }
 </script>

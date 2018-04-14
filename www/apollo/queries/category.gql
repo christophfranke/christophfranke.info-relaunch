@@ -1,0 +1,17 @@
+query category($slug: String!) {
+	category: Category(slug: $slug) {
+		title
+		projects {
+		  title
+		  slug
+		  media {
+		    sort
+		    handle
+		  }
+		  categories {
+		  	displayName
+		  	slug
+		  }
+		}
+	}
+}

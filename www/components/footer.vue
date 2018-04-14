@@ -22,7 +22,7 @@
           </nav>
         </div>
         <div class="copyright">
-          <p>All copyright © reserved by <a href="#">BasicTheme</a> 2018</p>
+          <p>&hearts;</p>
         </div>
       </div>
     </div>

@@ -12,11 +12,11 @@
 
 					<div class="about-text">
 						<div v-html="page.text"></div>
-						<call-to-action :cta="cta" v-for="cta in page.callToActions" />
+						<call-to-action :cta="cta" v-for="cta in page.callToActions" :key="cta.url" />
 					</div>
 
 					<div class="about-img">
-						<lazy-image :handle="page.media.handle" />
+						<lazy-image :handle="page.media.handle" v-if="page.media" />
 					</div>
 
 				</div>
