@@ -4,7 +4,6 @@
 
 		<div class="container">
 			<div class="portfolio-details-area">
-			<!-- {{ project }} -->
 				<no-ssr>
 					<carousel :perPage="1" :navigationEnabled="true">
 						<slide v-for="image in project.media" :key="image.id">
@@ -18,8 +17,8 @@
 				<div class="facts">
 					<ul>
 						<li>Categories:
-							<span v-for="(type, index) in project.types">
-								<span v-if="index > 0">, </span><nuxt-link :to="typeUrl(type)">{{ type }}</nuxt-link>
+							<span v-for="(category, index) in project.categories">
+								<span v-if="index > 0">, </span><nuxt-link :to="url(category.slug)">{{ category.displayName }}</nuxt-link>
 							</span>
 						</li>
 						<li v-if="project.releaseDate">Released: {{ releaseFormatted }}</li>
@@ -83,6 +82,9 @@ img {
 	padding: 0 15px;
 	width: calc(50% - 30px);
 }
+.portfolio-view-btn {
+	margin-top: 20px;
+}
 </style>
 
 <script>
@@ -119,7 +121,7 @@ export default {
   	}
   },
   methods: {
-  	typeUrl: (type) => `/portfolio/${type}`.toLowerCase()
+  	url: (slug) => `/portfolio/${slug}`
   },
   data() {
   	return {

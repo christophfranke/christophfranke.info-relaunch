@@ -4,7 +4,10 @@ query project($slug: String!) {
 	  title
 	  releaseDate
 	  projectURL
-	  types
+	  categories {
+	  	displayName
+	  	slug
+	  }
 	  client
 	  media {
 	  	id

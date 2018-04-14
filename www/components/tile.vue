@@ -3,14 +3,13 @@
 		<div class="portfolio-wrapper">
 			<div class="portfolio-thumb">
 				<lazy-image :handle="project.media[0].handle" />
-				<div class="view-icon">
-					<a class="popup-video" href="https://www.youtube.com/watch?v=nrJtHemSPW4"><span class="icon-video "></span></a>									
-				</div>
 			</div>
 			<div class="portfolio-caption">
-				<h4><nuxt-link :to="slugUrl(project.slug)">{{ project.title }}</nuxt-link></h4>
+				<h4><nuxt-link :to="slug('/', project.slug)">{{ project.title }}</nuxt-link></h4>
 				<div class="work-tag">
-					<nuxt-link :to="typeUrl(type)" v-for="type in project.types" :key="type">{{ type }}</nuxt-link>
+					<span v-for="(category, index) in project.categories" :key="category.slug">
+						<span v-if="index > 0">, </span><nuxt-link :to="slug('/portfolio/', category.slug)">{{ category.displayName }}</nuxt-link>
+					</span>
 				</div>
 			</div>
 		</div>
@@ -40,8 +39,7 @@ export default {
 		}
 	},
 	methods: {
-		typeUrl: (type) => `/portfolio/${type}`.toLowerCase(),
-		slugUrl: (slug) => `/${slug}`
+		slug: (path, slug) => `${path}/${slug}`
 	}
 }
 </script>

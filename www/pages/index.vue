@@ -1,7 +1,7 @@
 <template>
   <div>
     <home-slide :imageHandle="page.headerImage.handle" v-if="!$apollo.loading"/>
-    <tiles :projects="projects" />
+    <tiles :projects="projects" :categories="categories" />
     <service />
   </div>
 </template>
@@ -10,6 +10,7 @@
 import components from '~/components';
 import page from '~/apollo/queries/page.gql'
 import projects from '~/apollo/queries/allProjects.gql'
+import categories from '~/apollo/queries/allCategories.gql'
 
 
 export default {
@@ -22,6 +23,10 @@ export default {
   	},
     projects: {
       query: projects,
+      prefetch: () => {},
+    },
+    categories: {
+      query: categories,
       prefetch: () => {},
     }
   },
@@ -36,6 +41,8 @@ export default {
   			title: '...'
   		},
       projects: [],
+      categories: [],
+      project: []
   	}
   }
 };

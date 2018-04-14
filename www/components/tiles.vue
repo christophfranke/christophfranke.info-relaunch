@@ -2,12 +2,14 @@
 	<div class="basic-portfolio-area">
 		<div class="container">
 			<div class="filter-menu">
-				<button class="active">ALL</button>
-				<button v-for="type in types">{{ type }}</button>
+				<button class="active" @click="setFilter('')">All</button>
+				<button v-for="category in categories" @click="setFilter(category.slug)">{{ category.displayName }}</button>
 			</div>			
 
 			<div class="row-portfolio portfolio-style-2 portfolio-style-3">
-				<tile v-for="project in projects" :project="project" :key="project.slug" />
+				<transition-group name="tiles">
+					<tile v-for="project in filteredProjects" :project="project" :key="project.slug" />
+				</transition-group>
 			</div>
 			<div class="view-more">
 				<a class="btn btn-large" href="#">View More</a>
@@ -17,6 +19,20 @@
 </template>
 
 <style lang="scss" scoped>
+.row-portfolio {
+	position: relative;
+}
+.portfolio-item {
+	transition: all .3s ease-in-out;
+}
+.tiles-enter, .tiles-leave-to {
+	transform: scale3D(0, 0, 0);
+}
+.tiles-leave-active {
+	position: absolute;
+}
+
+
 .basic-portfolio-area {
 	padding: 90px 0;
 }
@@ -66,11 +82,28 @@ export default {
 	props: {
 		projects: {
 			type: Array,
-			default: [],
+			default: () => []
 		},
-		types: {
+		categories: {
 			tpye: Array,
-			default: () => ['Online Shop', 'Video Game', 'High Performance Computing', 'Website']
+			default: () => []
+		}
+	},
+	data() {
+		return {
+			filter: '',
+		}
+	},
+	methods: {
+		setFilter(slug) {
+			this.filter = slug;
+		}
+	},
+	computed: {
+		filteredProjects() {
+			return this.projects.filter(
+				(project) => (!this.filter) || project.categories.map(
+					(category) => category.slug).includes(this.filter));
 		}
 	}
 }
