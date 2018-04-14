@@ -93,6 +93,8 @@ p {
   line-height: 24px;
   color: #555;
   margin-bottom: 15px;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;  
 }
 hr{
   padding: 0px;

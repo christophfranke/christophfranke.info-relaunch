@@ -26,10 +26,7 @@
 						<li v-if="project.client">Client: {{ project.client }}</li>
 					</ul>
 					<div class="portfolio-view-btn">
-						<span v-for="cta in project.callToActions" :key="cta.url">
-							<a class="btn" :href="cta.url" target="_blank" v-if="!cta.internalLink">{{ cta.text || cta.url }}</a>
-							<nuxt-link class="btn" :to="cta.url" v-if="cta.internalLink">{{ cta.text || cta.url }}</nuxt-link>
-						</span>
+						<call-to-action v-for="cta in project.callToActions" :key="cta.url" :cta="cta" />
 					</div>
 				</div>
 

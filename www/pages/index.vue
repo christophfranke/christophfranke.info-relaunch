@@ -1,6 +1,6 @@
 <template>
   <div>
-    <home-slide :imageHandle="page.headerImage.handle" v-if="!$apollo.loading"/>
+    <header-slide :header="page.header" v-if="page.header" />
     <tiles :projects="projects" :categories="categories" />
     <service />
   </div>

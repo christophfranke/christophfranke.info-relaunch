@@ -2,9 +2,26 @@ query page($slug: String!) {
 	page: Page(slug: $slug) {
 	  isPublished
 	  title
-	  headerImage {
+	  text
+	  header {
+	  	image {
+	  		handle
+	  	}
+	  	text
+	  	callToAction {
+	  		text
+	  		url
+	  		internalLink
+	  	}
+	  }
+	  media {
 	  	id
 	    handle
+	  }
+	  callToActions {
+	  	text
+	  	url
+	  	internalLink
 	  }
 	  features(filter: {isPublished: true}) {
 	    title
