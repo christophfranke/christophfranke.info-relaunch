@@ -3,8 +3,12 @@ query ProjectData {
   	title
     slug
   }
-  projects: allProjects {
-  	title
-    slug
+  categories: allCategories {
+  	displayName
+  	slug
+  	projects {
+  		title
+  		slug
+  	}
   }
 }

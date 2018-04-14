@@ -7,13 +7,10 @@
 			</div>			
 
 			<div class="row-portfolio portfolio-style-2 portfolio-style-3">
-				<transition-group name="tiles">
+				<transition-group name="tiles" class="tiles-container" tag="div">
 					<tile v-for="project in filteredProjects" :project="project" :key="project.slug" />
 				</transition-group>
 			</div>
-			<div class="view-more">
-				<a class="btn btn-large" href="#">View More</a>
-			</div>			
 		</div>
 	</div>
 </template>
@@ -21,6 +18,10 @@
 <style lang="scss" scoped>
 .row-portfolio {
 	position: relative;
+}
+.tiles-container {
+	display: flex;
+	flex-wrap: wrap;	
 }
 .portfolio-item {
 	transition: all .3s ease-in-out;

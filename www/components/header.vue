@@ -2,11 +2,11 @@
 	<header>
 	  <div class="header-area headroom">
 	    <div class="menu-area">
-	    	<Desktop/>
+	    	<Desktop :menu="menu" />
 	    </div>
 	    <div class="basic-mobile-menu">
-	    	<Mobile />
-	    </div>              
+	    	<Mobile :menu="menu"/>
+	    </div>
       <div class="logo text-upper">
         <h4><nuxt-link to="/">Christoph Franke</nuxt-link></h4>
       </div>
@@ -25,9 +25,53 @@ export default {
 			prefetch: true,
 			query: query
 		},
-		projects: {
+		categories: {
 			prefetch: true,
 			query: query
+		}
+	},
+	computed: {
+		menu() {
+			console.log(this.pages)
+			console.log(this.projects)
+			return [
+				{
+					title: 'Home',
+					url: '/'
+				},
+				{
+					title: 'About me',
+					url: '/about'
+				},
+				{
+					title: 'Portfolio',
+					url: '/portfolio',
+					sub: [
+						{
+							title: 'Website',
+							url: '/portfolio/website',
+							sub: [
+								{
+									title: 'Achtung Kurve',
+									url: '/achtung-kurve'
+								},
+								{
+									title: 'Emerged Agency Website Relaunch',
+									url: '/emerged-agency-relaunch'
+								}
+							]
+						},
+						{
+							title: 'Video Game',
+							url: '/portfolio/video-game'
+						}
+					]
+				},
+				{
+					title: 'Contact',
+					url: '/contact'
+				}				
+			]
 		}
 	}
 }

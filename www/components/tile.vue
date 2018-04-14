@@ -1,5 +1,5 @@
 <template>
-	<div class="portfolio-item graphic">
+	<div class="portfolio-item">
 		<div class="portfolio-wrapper">
 			<div class="portfolio-thumb">
 				<lazy-image :handle="project.media[0].handle" />
@@ -39,7 +39,7 @@ export default {
 		}
 	},
 	methods: {
-		slug: (path, slug) => `${path}/${slug}`
+		slug: (path, slug) => `${path}${slug}`
 	}
 }
 </script>
