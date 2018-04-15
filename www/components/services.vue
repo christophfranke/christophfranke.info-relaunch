@@ -9,7 +9,7 @@
         </div>
         <div class="service-content">
           <h3><a :href="service.link" target="_blank">{{ service.title }}</a></h3>
-          <p>{{ service.description }}</p>
+          <vue-markdown>{{ service.description }}</vue-markdown>
         </div>
       </div>
     </div>
@@ -53,10 +53,12 @@
 
 <script>
 import lazyImage from './lazy-image.vue'
+import vueMarkdown from 'vue-markdown'
 
 export default {
   components: {
-    lazyImage
+    lazyImage,
+    vueMarkdown
   },
   props: {
     services: {
