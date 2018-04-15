@@ -108,7 +108,7 @@ export default {
 			},
       variables() {
         return { slug: this.$route.params.project }
-      }
+      },
   	}
   },
   mounted() {

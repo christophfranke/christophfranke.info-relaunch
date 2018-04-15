@@ -15,7 +15,7 @@
 					</div>
 
 					<div class="about-img">
-						<lazy-image :handle="page.media.handle" v-if="page.media" />
+						<lazy-image :image="page.media" v-if="page.media" />
 					</div>
 
 				</div>

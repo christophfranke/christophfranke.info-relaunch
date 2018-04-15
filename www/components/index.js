@@ -1,19 +1,11 @@
-import Header from './header.vue';
-import HeaderSlide from './header-slide.vue';
-import Tiles from './tiles.vue';
-import Services from './services.vue';
-import Footer from './footer.vue';
-import Breadcrumb from './breadcrumb.vue';
-import lazyImage from './lazy-image.vue';
-import callToAction from './call-to-action.vue';
-
 export default {
-	Header,
-	HeaderSlide,
-	Tiles,
-	Services,
-	Footer,
-	Breadcrumb,
-	lazyImage,
-	callToAction,
+	Header: () => import('./header.vue'),
+	headerSlide: () => import('./header-slide.vue'),
+	tiles: () => import('./tiles.vue'),
+	services: () => import('./services.vue'),
+	Footer: () => import('./footer.vue'),
+	breadcrumb: () => import('./breadcrumb.vue'),
+	lazyImage: () => import('./lazy-image.vue'),
+	callToAction: () => import('./call-to-action.vue'),
+	markdown: () => import('./markdown.vue')
 }

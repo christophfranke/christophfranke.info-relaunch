@@ -10,11 +10,10 @@
 </template>
 
 <script>
-import callToAction from './call-to-action';
 
 export default {
   components: {
-    callToAction
+    callToAction: () => import('./call-to-action.vue')
   },
   data() {
     return {

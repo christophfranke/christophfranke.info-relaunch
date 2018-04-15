@@ -2,7 +2,7 @@
 	<div class="portfolio-item">
 		<div class="portfolio-wrapper">
 			<div class="portfolio-thumb">
-				<lazy-image :handle="project.media[0].handle" />
+				<lazy-image :image="project.media[0]" />
 			</div>
 			<div class="portfolio-caption">
 				<h4><nuxt-link :to="slug('/', project.slug)">{{ project.title }}</nuxt-link></h4>
@@ -26,11 +26,9 @@
 </style>
 
 <script>
-import lazyImage from './lazy-image.vue';
-
 export default {
 	components: {
-		lazyImage
+		lazyImage: () => import('./lazy-image.vue')
 	},
 	props: {
 		project: {

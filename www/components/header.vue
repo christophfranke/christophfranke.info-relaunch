@@ -2,10 +2,10 @@
 	<header>
 	  <div class="header-area headroom">
 	    <div class="menu-area">
-	    	<Desktop :menu="menu" />
+	    	<desktop :menu="menu" />
 	    </div>
 	    <div class="basic-mobile-menu">
-	    	<Mobile :menu="menu"/>
+	    	<mobile :menu="menu"/>
 	    </div>
       <div class="logo text-upper">
         <h4><nuxt-link to="/">Christoph Franke</nuxt-link></h4>
@@ -19,6 +19,7 @@ import components from './header/index.js'
 import query from '~/apollo/queries/menu.gql'
 
 export default {
+	name: 'Header',
 	components,
 	apollo: {
 		pages: {
@@ -32,8 +33,6 @@ export default {
 	},
 	computed: {
 		menu() {
-			console.log(this.pages)
-			console.log(this.categories)
 			return [
 				{
 					title: 'Home',

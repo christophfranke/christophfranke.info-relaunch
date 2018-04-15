@@ -1,7 +1,5 @@
-import Desktop from './desktop.vue';
-import Mobile from './mobile.vue';
-
 export default {
-	Desktop,
-	Mobile
+	desktop: () => import('./desktop.vue'),
+	mobile: () => import('./mobile.vue'),
+	menuItem: () => import('./menu-item.vue')
 }

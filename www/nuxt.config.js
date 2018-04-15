@@ -5,12 +5,13 @@ module.exports = {
       default: '~/apollo/client-configs/default.js'
     }
   },
-  generate: {
-  	routes: (ctx) => {
-  		return [
-	  		'/emerged-agency-relaunch',
-	  	]
-	  }
-  },
+  // generate: {
+  // 	routes: (ctx) => {
+  //     console.log(ctx)
+  // 		return [
+  //       '/',
+	 //  	]
+	 //  }
+  // },
   loading: false,
 }

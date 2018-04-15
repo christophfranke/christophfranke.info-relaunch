@@ -1,5 +1,5 @@
 Arguments: 
-  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js add graph-tag
+  /usr/local/Cellar/node/9.10.1/bin/node /usr/local/Cellar/yarn/1.5.1_1/libexec/bin/yarn.js build
 
 PATH: 
   /usr/local/opt/gettext/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
@@ -21,17 +21,22 @@ npm manifest:
     "main": "index.js",
     "scripts": {
       "test": "echo \"Error: no test specified\" && exit 1",
-      "dev": "nuxt"
+      "dev": "nuxt",
+      "build": "nuxt generate"
     },
     "author": "",
     "license": "ISC",
     "dependencies": {
       "@nuxtjs/apollo": "^3.0.6",
       "apollo-link-http": "^1.5.3",
+      "dateformat": "^3.0.3",
       "graphql": "^0.13.2",
+      "graphql-tag": "^2.8.0",
       "node-sass": "^4.8.3",
       "nuxt": "^1.4.0",
-      "sass-loader": "^6.0.7"
+      "sass-loader": "^6.0.7",
+      "vue-carousel": "^0.6.11",
+      "vue-markdown": "^2.2.4"
     }
   }
 
@@ -1360,7 +1365,7 @@ Lockfile:
     version "1.0.4"
     resolved "https://registry.yarnpkg.com/clone/-/clone-1.0.4.tgz#da309cc263df15994c688ca902179ca3c7cd7c7e"
   
-  clone@^2.1.1:
+  clone@^2.1.0, clone@^2.1.1:
     version "2.1.2"
     resolved "https://registry.yarnpkg.com/clone/-/clone-2.1.2.tgz#1b7f4b9f591f1e8f83670401600345a02887435f"
   
@@ -1791,6 +1796,10 @@ Lockfile:
   date-now@^0.1.4:
     version "0.1.4"
     resolved "https://registry.yarnpkg.com/date-now/-/date-now-0.1.4.tgz#eaf439fd4d4848ad74e5cc7dbef200672b9e345b"
+  
+  dateformat@^3.0.3:
+    version "3.0.3"
+    resolved "https://registry.yarnpkg.com/dateformat/-/dateformat-3.0.3.tgz#a6e37499a4d9a9cf85ef5872044d62901c9889ae"
   
   de-indent@^1.0.2:
     version "1.0.2"
@@ -2580,6 +2589,10 @@ Lockfile:
     dependencies:
       apollo-utilities "^1.0.11"
   
+  graphql-tag@^2.8.0:
+    version "2.8.0"
+    resolved "https://registry.yarnpkg.com/graphql-tag/-/graphql-tag-2.8.0.tgz#52cdea07a842154ec11a2e840c11b977f9b835ce"
+  
   graphql@^0.13.2:
     version "0.13.2"
     resolved "https://registry.yarnpkg.com/graphql/-/graphql-0.13.2.tgz#4c740ae3c222823e7004096f832e7b93b2108270"
@@ -2728,6 +2741,10 @@ Lockfile:
   he@1.1.x, he@^1.1.0:
     version "1.1.1"
     resolved "https://registry.yarnpkg.com/he/-/he-1.1.1.tgz#93410fd21b009735151f8868c2f271f3427e23fd"
+  
+  highlight.js@^9.12.0:
+    version "9.12.0"
+    resolved "https://registry.yarnpkg.com/highlight.js/-/highlight.js-9.12.0.tgz#e6d9dbe57cbefe60751f02af336195870c90c01e"
   
   hmac-drbg@^1.0.0:
     version "1.0.1"
@@ -3251,6 +3268,12 @@ Lockfile:
       json-schema "0.2.3"
       verror "1.10.0"
   
+  katex@^0.6.0:
+    version "0.6.0"
+    resolved "https://registry.yarnpkg.com/katex/-/katex-0.6.0.tgz#12418e09121c05c92041b6b3b9fb6bab213cb6f3"
+    dependencies:
+      match-at "^0.1.0"
+  
   kind-of@^3.0.2, kind-of@^3.0.3, kind-of@^3.2.0:
     version "3.2.2"
     resolved "https://registry.yarnpkg.com/kind-of/-/kind-of-3.2.2.tgz#31ea21a734bab9bbb0f32466d893aea51e4a3c64"
@@ -3293,6 +3316,12 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/lcid/-/lcid-1.0.0.tgz#308accafa0bc483a3867b4b6f2b9506251d1b835"
     dependencies:
       invert-kv "^1.0.0"
+  
+  linkify-it@~1.2.2:
+    version "1.2.4"
+    resolved "https://registry.yarnpkg.com/linkify-it/-/linkify-it-1.2.4.tgz#0773526c317c8fd13bd534ee1d180ff88abf881a"
+    dependencies:
+      uc.micro "^1.0.1"
   
   load-json-file@^1.0.0:
     version "1.1.0"
@@ -3468,6 +3497,69 @@ Lockfile:
     dependencies:
       object-visit "^1.0.0"
   
+  markdown-it-abbr@^1.0.3:
+    version "1.0.4"
+    resolved "https://registry.yarnpkg.com/markdown-it-abbr/-/markdown-it-abbr-1.0.4.tgz#d66b5364521cbb3dd8aa59dadfba2fb6865c8fd8"
+  
+  markdown-it-deflist@^2.0.1:
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/markdown-it-deflist/-/markdown-it-deflist-2.0.3.tgz#5727db04184d3cb2bc6ee4a9641e3a1091d5fd6f"
+  
+  markdown-it-emoji@^1.1.1:
+    version "1.4.0"
+    resolved "https://registry.yarnpkg.com/markdown-it-emoji/-/markdown-it-emoji-1.4.0.tgz#9bee0e9a990a963ba96df6980c4fddb05dfb4dcc"
+  
+  markdown-it-footnote@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/markdown-it-footnote/-/markdown-it-footnote-2.0.0.tgz#14e9c4f68ff12cf354fa365ae378276e8104ca94"
+  
+  markdown-it-ins@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/markdown-it-ins/-/markdown-it-ins-2.0.0.tgz#a5aa6a30f1e2f71e9497567cfdff40f1fde67483"
+  
+  markdown-it-katex@^2.0.3:
+    version "2.0.3"
+    resolved "https://registry.yarnpkg.com/markdown-it-katex/-/markdown-it-katex-2.0.3.tgz#d7b86a1aea0b9d6496fab4e7919a18fdef589c39"
+    dependencies:
+      katex "^0.6.0"
+  
+  markdown-it-mark@^2.0.0:
+    version "2.0.0"
+    resolved "https://registry.yarnpkg.com/markdown-it-mark/-/markdown-it-mark-2.0.0.tgz#46a1aa947105aed8188978e0a016179e404f42c7"
+  
+  markdown-it-sub@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/markdown-it-sub/-/markdown-it-sub-1.0.0.tgz#375fd6026eae7ddcb012497f6411195ea1e3afe8"
+  
+  markdown-it-sup@^1.0.0:
+    version "1.0.0"
+    resolved "https://registry.yarnpkg.com/markdown-it-sup/-/markdown-it-sup-1.0.0.tgz#cb9c9ff91a5255ac08f3fd3d63286e15df0a1fc3"
+  
+  markdown-it-task-lists@^2.0.1:
+    version "2.1.1"
+    resolved "https://registry.yarnpkg.com/markdown-it-task-lists/-/markdown-it-task-lists-2.1.1.tgz#f68f4d2ac2bad5a2c373ba93081a1a6848417088"
+  
+  markdown-it-toc-and-anchor@^4.1.2:
+    version "4.1.2"
+    resolved "https://registry.yarnpkg.com/markdown-it-toc-and-anchor/-/markdown-it-toc-and-anchor-4.1.2.tgz#b271f694a70bf719e6b728056d7bd931d364214d"
+    dependencies:
+      clone "^2.1.0"
+      uslug "^1.0.4"
+  
+  markdown-it@^6.0.1:
+    version "6.1.1"
+    resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-6.1.1.tgz#ced037f4473ee9f5153ac414f77dc83c91ba927c"
+    dependencies:
+      argparse "^1.0.7"
+      entities "~1.1.1"
+      linkify-it "~1.2.2"
+      mdurl "~1.0.1"
+      uc.micro "^1.0.1"
+  
+  match-at@^0.1.0:
+    version "0.1.1"
+    resolved "https://registry.yarnpkg.com/match-at/-/match-at-0.1.1.tgz#25d040d291777704d5e6556bbb79230ec2de0540"
+  
   math-expression-evaluator@^1.2.14:
     version "1.2.17"
     resolved "https://registry.yarnpkg.com/math-expression-evaluator/-/math-expression-evaluator-1.2.17.tgz#de819fdbcd84dccd8fae59c6aeb79615b9d266ac"
@@ -3478,6 +3570,10 @@ Lockfile:
     dependencies:
       hash-base "^3.0.0"
       inherits "^2.0.1"
+  
+  mdurl@~1.0.1:
+    version "1.0.1"
+    resolved "https://registry.yarnpkg.com/mdurl/-/mdurl-1.0.1.tgz#fe85b2ec75a59037f2adfec100fd6c601761152e"
   
   media-typer@0.3.0:
     version "0.3.0"
@@ -5880,6 +5976,10 @@ Lockfile:
     version "0.0.6"
     resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   
+  uc.micro@^1.0.1:
+    version "1.0.5"
+    resolved "https://registry.yarnpkg.com/uc.micro/-/uc.micro-1.0.5.tgz#0c65f15f815aa08b560a61ce8b4db7ffc3f45376"
+  
   uglify-es@^3.3.4:
     version "3.3.9"
     resolved "https://registry.yarnpkg.com/uglify-es/-/uglify-es-3.3.9.tgz#0c1c4f0700bed8dbc124cdb304d2592ca203e677"
@@ -5978,6 +6078,10 @@ Lockfile:
     version "0.1.1"
     resolved "https://registry.yarnpkg.com/universalify/-/universalify-0.1.1.tgz#fa71badd4437af4c148841e3b3b165f9e9e590b7"
   
+  "unorm@>= 1.0.0":
+    version "1.4.1"
+    resolved "https://registry.yarnpkg.com/unorm/-/unorm-1.4.1.tgz#364200d5f13646ca8bcd44490271335614792300"
+  
   unpipe@1.0.0, unpipe@~1.0.0:
     version "1.0.0"
     resolved "https://registry.yarnpkg.com/unpipe/-/unpipe-1.0.0.tgz#b2bf4ee8514aae6165b4817829d21b2ef49904ec"
@@ -6031,6 +6135,12 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/use/-/use-3.1.0.tgz#14716bf03fdfefd03040aef58d8b4b85f3a7c544"
     dependencies:
       kind-of "^6.0.2"
+  
+  uslug@^1.0.4:
+    version "1.0.4"
+    resolved "https://registry.yarnpkg.com/uslug/-/uslug-1.0.4.tgz#b9a22f0914e0a86140633dacc302e5f4fa450677"
+    dependencies:
+      unorm ">= 1.0.0"
   
   util-deprecate@~1.0.1:
     version "1.0.2"
@@ -6099,6 +6209,10 @@ Lockfile:
       lodash.omit "^4.5.0"
       lodash.throttle "^4.1.1"
   
+  vue-carousel@^0.6.11:
+    version "0.6.11"
+    resolved "https://registry.yarnpkg.com/vue-carousel/-/vue-carousel-0.6.11.tgz#cd4687b02cdeeb5f48147ba820bcecdd57e27784"
+  
   vue-hot-reload-api@^2.2.0:
     version "2.3.0"
     resolved "https://registry.yarnpkg.com/vue-hot-reload-api/-/vue-hot-reload-api-2.3.0.tgz#97976142405d13d8efae154749e88c4e358cf926"
@@ -6120,6 +6234,24 @@ Lockfile:
       vue-hot-reload-api "^2.2.0"
       vue-style-loader "^3.0.0"
       vue-template-es2015-compiler "^1.6.0"
+  
+  vue-markdown@^2.2.4:
+    version "2.2.4"
+    resolved "https://registry.yarnpkg.com/vue-markdown/-/vue-markdown-2.2.4.tgz#db0f774178f3bc91ee18c626d86a3a0d2de22746"
+    dependencies:
+      highlight.js "^9.12.0"
+      markdown-it "^6.0.1"
+      markdown-it-abbr "^1.0.3"
+      markdown-it-deflist "^2.0.1"
+      markdown-it-emoji "^1.1.1"
+      markdown-it-footnote "^2.0.0"
+      markdown-it-ins "^2.0.0"
+      markdown-it-katex "^2.0.3"
+      markdown-it-mark "^2.0.0"
+      markdown-it-sub "^1.0.0"
+      markdown-it-sup "^1.0.0"
+      markdown-it-task-lists "^2.0.1"
+      markdown-it-toc-and-anchor "^4.1.2"
   
   vue-meta@^1.4.3:
     version "1.5.0"
@@ -6415,11 +6547,16 @@ Lockfile:
     resolved "https://registry.yarnpkg.com/zen-observable/-/zen-observable-0.7.1.tgz#f84075c0ee085594d3566e1d6454207f126411b3"
 
 Trace: 
-  Error: Couldn't find package "graph-tag" on the "npm" registry.
-      at new MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
-      at NpmResolver.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:51625:15)
-      at Generator.next (<anonymous>)
-      at step (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:98:30)
-      at /usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:109:13
-      at <anonymous>
-      at process._tickCallback (internal/process/next_tick.js:118:7)
+  Error: Command failed.
+  Exit code: 1
+  Command: sh
+  Arguments: -c nuxt generate
+  Directory: /Users/christophfranke/Projekte/Privat/christophfranke-relaunch/www
+  Output:
+  
+      at ProcessTermError.MessageError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:186:110)
+      at new ProcessTermError (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:226:113)
+      at ChildProcess.<anonymous> (/usr/local/Cellar/yarn/1.5.1_1/libexec/lib/cli.js:30281:17)
+      at ChildProcess.emit (events.js:180:13)
+      at maybeClose (internal/child_process.js:936:16)
+      at Process.ChildProcess._handle.onexit (internal/child_process.js:220:5)

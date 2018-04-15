@@ -17,12 +17,10 @@ nav {
 </style>
 
 <script>
-import MenuItem from './menu-item.vue';
+import components from './index.js';
 
 export default {
-	components: {
-		MenuItem
-	},
+	components,
 	props: ['menu']
 }
 </script>

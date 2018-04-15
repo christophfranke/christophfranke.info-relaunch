@@ -6,11 +6,11 @@
 
 <script>
 export default {
-	name: 'Asdf',
+	name: 'LazyImage',
 	props: {
-		handle: {
-			type: String,
-			default: ''
+		image: {
+			type: Object,
+			required: true
 		},
 		baseUrl: {
 			type: String,
@@ -24,10 +24,6 @@ export default {
 			type: Number,
 			default: 0
 		},
-		previewColor: {
-			type: String,
-			default: 'black'
-		}
 	},
 	computed: {
 		size() {
@@ -59,7 +55,9 @@ export default {
 	},
 	data() {
 		return {
-			mounted: false
+			mounted: false,
+			previewColor: this.image.previewColor,
+			handle: this.image.handle
 		}
 	},
 	mounted() {

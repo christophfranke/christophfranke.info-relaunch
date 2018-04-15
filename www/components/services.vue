@@ -4,12 +4,12 @@
       <div class="service-box" v-for="service in services" :key="service.title">
         <div class="service-icon" v-if="service.icon">
           <a :href="service.link" target="_blank">
-            <lazy-image :handle="service.icon.handle" :aspectRatio="1" />
+            <lazy-image :image="service.icon" :aspectRatio="1" />
           </a>
         </div>
         <div class="service-content">
           <h3><a :href="service.link" target="_blank">{{ service.title }}</a></h3>
-          <vue-markdown>{{ service.description }}</vue-markdown>
+          <markdown :content="service.description" />
         </div>
       </div>
     </div>
@@ -52,13 +52,10 @@
 </style>
 
 <script>
-import lazyImage from './lazy-image.vue'
-import vueMarkdown from 'vue-markdown'
-
 export default {
   components: {
-    lazyImage,
-    vueMarkdown
+    markdown: () => import('./markdown.vue'),
+    lazyImage: () => import('./lazy-image.vue')
   },
   props: {
     services: {

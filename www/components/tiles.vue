@@ -72,12 +72,10 @@
 </style>
 
 <script>
-import lazyImage from './lazy-image.vue';
 import tile from './tile.vue';
 
 export default {
 	components: {
-		lazyImage,
 		tile
 	},
 	props: {
