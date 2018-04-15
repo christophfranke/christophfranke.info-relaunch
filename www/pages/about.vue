@@ -23,7 +23,10 @@
 			</div>
 		</div>
 
-		<services :services="page.features" />
+		<div class="experience-area">
+			<h2>Experience</h2>
+			<services :services="page.features" />
+		</div>
 
 	</div>
 </template>
@@ -36,28 +39,34 @@
 .signature {
 	margin-top: 20px;
 }
+.experience-area {
+	padding-top: 60px;
+	background-color: #f6f6f6;
+}
 .row {
 	margin-top: 90px;
 	display: flex;
 }
 .about-text, .about-img {
-	width: 50%;
-	padding: 0 15px;
+	width: calc(50% - 60px);
+	padding: 0 30px;
 }
 .area-title {
 	text-align: center;
 	margin-bottom: 60px;
-	h2 {	
-		position: relative;
-		&::after {		
-	    bottom: -25px;
-		  content: "• • • •";
-	    display: block;
-	    font-size: 20px;
-	    left: 0;
-	    position: absolute;
-	    right: 0;	
-		}
+}
+
+h2 {
+	position: relative;
+	text-align: center;
+	&::after {		
+    bottom: -25px;
+	  content: "• • • •";
+    display: block;
+    font-size: 20px;
+    left: 0;
+    position: absolute;
+    right: 0;	
 	}
 }
 </style>
