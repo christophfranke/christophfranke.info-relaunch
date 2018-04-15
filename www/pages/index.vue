@@ -1,6 +1,7 @@
 <template>
   <div>
     <header-slide :header="page.header" v-if="page.header" />
+    <nuxt-link to="/adsf">trigger 404</nuxt-link>
     <tiles :projects="projects" :categories="categories" />
     <services :services="page.features" />
   </div>

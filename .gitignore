@@ -1,6 +1,7 @@
 
 www/node_modules
 www/.nuxt
+www/dist/
 
 theme/
 unsplash/

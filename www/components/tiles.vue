@@ -3,7 +3,7 @@
 		<div class="container">
 			<div class="filter-menu" v-if="categories.length > 0">
 				<button :class="{ active: !filter }" @click="setFilter('')">All</button>
-				<button :class="{ active: filter == category.slug }" v-for="category in categories" @click="setFilter(category.slug)">{{ category.displayName }}</button>
+				<button :class="{ active: filter == category.slug }" v-for="category in categories" @click="setFilter(category.slug)">{{ category.title }}</button>
 			</div>			
 
 			<div class="row-portfolio portfolio-style-2 portfolio-style-3">

@@ -1,5 +1,5 @@
 <template>
-	<div>
+	<div v-if="project">
 		<breadcrumb :title="project.title" :path="path"/>
 
 		<div class="container">
@@ -18,7 +18,7 @@
 					<ul>
 						<li>Categories:
 							<span v-for="(category, index) in project.categories">
-								<span v-if="index > 0">, </span><nuxt-link :to="url(category.slug)">{{ category.displayName }}</nuxt-link>
+								<span v-if="index > 0">, </span><nuxt-link :to="url(category.slug)">{{ category.tagName }}</nuxt-link>
 							</span>
 						</li>
 						<li v-if="project.releaseDate">Released: {{ releaseFormatted }}</li>
@@ -109,6 +109,12 @@ export default {
       variables() {
         return { slug: this.$route.params.project }
       },
+      update(data) {
+      	if (!data.project) {
+      		this.$router.replace('/404')
+      	}
+      	return data.project
+      }
   	}
   },
   mounted() {
@@ -147,7 +153,7 @@ export default {
   },
   head() {
   	return {
-  		title: this.project.title
+  		title: this.project ? this.project.title : '...'
   	}
   }
 }

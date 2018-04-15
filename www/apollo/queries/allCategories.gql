@@ -1,6 +1,6 @@
 query Categories {
   categories: allCategories {
-	  displayName
+	  title
 	  slug
   }
 }

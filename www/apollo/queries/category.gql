@@ -10,7 +10,7 @@ query category($slug: String!) {
 		    previewColor
 		  }
 		  categories {
-		  	displayName
+		  	tagName
 		  	slug
 		  }
 		}

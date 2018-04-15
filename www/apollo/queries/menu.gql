@@ -4,7 +4,7 @@ query ProjectData {
     slug
   }
   categories: allCategories {
-  	displayName
+  	title
   	slug
   	projects {
   		title

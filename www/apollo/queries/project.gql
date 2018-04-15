@@ -5,7 +5,7 @@ query project($slug: String!) {
 	  releaseDate
 	  projectURL
 	  categories {
-	  	displayName
+	  	tagName
 	  	slug
 	  }
 	  client

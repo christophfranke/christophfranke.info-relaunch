@@ -15,10 +15,11 @@
 </template>
 
 <script>
+import { willPrefetch } from 'vue-apollo'
 import components from './header/index.js'
 import query from '~/apollo/queries/menu.gql'
 
-export default {
+export default willPrefetch({
 	name: 'Header',
 	components,
 	apollo: {
@@ -33,6 +34,29 @@ export default {
 	},
 	computed: {
 		menu() {
+			if (this.pages && this.categories) {
+				/// create menu
+				const menu = this.pages.map(page => ({
+					title: page.title,
+					url: `/${page.slug}`
+				}))
+				// insert portfolio
+				menu.splice(2, 0, {
+					title: 'Portfolio',
+					url: '/portfolio',
+					sub: this.categories.map(cat => ({
+						title: cat.title,
+						url: `/portfolio/${cat.slug}`,
+						sub: cat.projects.map(project => ({
+							title: project.title,
+							url: `/${project.slug}`
+						}))
+					}))
+				})
+				// return!
+				return menu
+			}
+
 			return [
 				{
 					title: 'Home',
@@ -44,27 +68,7 @@ export default {
 				},
 				{
 					title: 'Portfolio',
-					url: '/portfolio',
-					sub: [
-						{
-							title: 'Website',
-							url: '/portfolio/website',
-							sub: [
-								{
-									title: 'Achtung Kurve',
-									url: '/achtung-kurve'
-								},
-								{
-									title: 'Emerged Agency Website Relaunch',
-									url: '/emerged-agency-relaunch'
-								}
-							]
-						},
-						{
-							title: 'Video Game',
-							url: '/portfolio/video-game'
-						}
-					]
+					url: '/portfolio'
 				},
 				{
 					title: 'Contact',
@@ -73,7 +77,7 @@ export default {
 			]
 		}
 	}
-}
+})
 </script>
 
 <style lang="scss" scoped>

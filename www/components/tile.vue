@@ -8,7 +8,7 @@
 				<h4><nuxt-link :to="slug('/', project.slug)">{{ project.title }}</nuxt-link></h4>
 				<div class="work-tag">
 					<span v-for="(category, index) in project.categories" :key="category.slug">
-						<span v-if="index > 0">, </span><nuxt-link :to="slug('/portfolio/', category.slug)">{{ category.displayName }}</nuxt-link>
+						<span v-if="index > 0">, </span><nuxt-link :to="slug('/portfolio/', category.slug)">{{ category.tagName }}</nuxt-link>
 					</span>
 				</div>
 			</div>
