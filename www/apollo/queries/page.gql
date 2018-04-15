@@ -23,7 +23,7 @@ query page($slug: String!) {
 	  	url
 	  	internalLink
 	  }
-	  features(filter: {isPublished: true}) {
+	  features {
 	    title
 	    description
 	  }

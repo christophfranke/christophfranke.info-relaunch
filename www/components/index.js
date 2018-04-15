@@ -1,7 +1,7 @@
 import Header from './header.vue';
 import HeaderSlide from './header-slide.vue';
 import Tiles from './tiles.vue';
-import Service from './service.vue';
+import Services from './services.vue';
 import Footer from './footer.vue';
 import Breadcrumb from './breadcrumb.vue';
 import lazyImage from './lazy-image.vue';
@@ -11,7 +11,7 @@ export default {
 	Header,
 	HeaderSlide,
 	Tiles,
-	Service,
+	Services,
 	Footer,
 	Breadcrumb,
 	lazyImage,

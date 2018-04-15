@@ -1,0 +1,54 @@
+.service-box {
+  background: #fff none repeat scroll 0 0;
+  padding: 65px 40px;
+}
+.area-title {
+  margin: 0 auto 60px;
+  width: 60%;
+}
+.area-title h2 {
+  display: inline-block;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  margin-bottom: 45px;
+  position: relative;
+  text-transform: uppercase;
+}
+.area-title h2::after {
+  bottom: -25px;
+  content: "• • • • ";
+  display: block;
+  font-size: 20px;
+  left: 0;
+  position: absolute;
+  right: 0;
+}
+.area-title p {
+  margin: 0;
+}
+.service-icon {
+}
+.service-icon span {
+  background-color: #e6e6e6;
+  border-radius: 50%;
+  color: #3e3e3e;
+  display: inline-block;
+  font-size: 18px;
+  height: 60px;
+  line-height: 59px;
+  margin-bottom: 20px;
+  text-align: center;
+  transition: all 0.4s ease 0s;
+  width: 60px;
+}
+.service-box:hover .service-icon span {background:#555;color:#fff}
+.service-content{}
+.service-content h3 {
+font-size: 15px;
+font-weight: 600;
+margin-bottom: 10px;
+}
+.service-content p {
+  margin: 0;
+}

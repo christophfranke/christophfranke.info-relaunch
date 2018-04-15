@@ -2,7 +2,7 @@
   <div>
     <header-slide :header="page.header" v-if="page.header" />
     <tiles :projects="projects" :categories="categories" />
-    <service />
+    <services :services="page.features" />
   </div>
 </template>
 
