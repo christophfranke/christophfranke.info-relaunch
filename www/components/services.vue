@@ -2,11 +2,13 @@
   <div class="basic-service-area">
     <div class="container">
       <div class="service-box" v-for="service in services" :key="service.title">
-        <div class="service-icon">
-          <lazy-image :handle="service.icon.handle" :aspectRatio="1" v-if="service.icon" />
+        <div class="service-icon" v-if="service.icon">
+          <a :href="service.link" target="_blank">
+            <lazy-image :handle="service.icon.handle" :aspectRatio="1" />
+          </a>
         </div>
         <div class="service-content">
-          <h3>{{ service.title }}</h3>
+          <h3><a :href="service.link" target="_blank">{{ service.title }}</a></h3>
           <p>{{ service.description }}</p>
         </div>
       </div>
@@ -39,15 +41,10 @@
     margin-bottom: 30px;
     display: inline-block;
     img {
-      transition: filter .3s, border-radius .3s;
-      // filter: invert(0%) grayscale(0%);
-    }
-  }
-  &:hover {
-    img {
-      border-radius: 50%;
-      // border-radius: 0;
-      // filter: invert(100%) grayscale(100%);
+      transition: transform .3s;
+      &:hover {
+        transform: scale3D(1.125, 1.125, 1);
+      }
     }
   }
 }
