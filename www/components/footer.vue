@@ -6,8 +6,8 @@
           <h3><nuxt-link to="/">Christoph Franke</nuxt-link></h3>
         </div>
         <div class="social-icon">
-          <a href="https://github.com/christophfranke"><img src="~/assets/github.png"></a>
-          <a href="https://www.linkedin.com/in/christoph-franke-44095673/"><img src="~/assets/linked-in.png"></a>
+          <a href="https://github.com/christophfranke" target="_blank"><img src="~/assets/github.png"></a>
+          <a href="https://www.linkedin.com/in/christoph-franke-44095673/" target="_blank"><img src="~/assets/linked-in.png"></a>
         </div>
         <div class="footer-menu">
           <nav>
