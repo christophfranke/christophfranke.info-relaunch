@@ -23,6 +23,8 @@
 			</div>
 		</div>
 
+		<services :services="page.features" />
+
 	</div>
 </template>
 

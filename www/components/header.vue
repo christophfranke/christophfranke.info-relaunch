@@ -32,8 +32,8 @@ export default {
 	},
 	computed: {
 		menu() {
-			// console.log(this.pages)
-			// console.log(this.categories)
+			console.log(this.pages)
+			console.log(this.categories)
 			return [
 				{
 					title: 'Home',

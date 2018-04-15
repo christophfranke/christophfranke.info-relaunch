@@ -26,6 +26,9 @@ query page($slug: String!) {
 	  features {
 	    title
 	    description
+	    icon {
+	    	handle
+	    }
 	  }
 	}
 }
