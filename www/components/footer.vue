@@ -21,7 +21,7 @@
           </nav>
         </div>
         <div class="copyright">
-          <p>&hearts;</p>
+          <p>&copy; Christoph Franke 2018<br>&hearts;</p>
         </div>
       </div>
     </div>

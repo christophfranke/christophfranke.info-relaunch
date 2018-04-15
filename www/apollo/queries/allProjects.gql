@@ -5,6 +5,7 @@ query ProjectTiles {
 	  media {
 	    sort
 	    handle
+	    previewColor
 	  }
 	  categories {
 	  	displayName

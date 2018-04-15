@@ -1,6 +1,5 @@
 <template>
 	<div>
-		<!-- <breadcrumb title="About" :path="path" /> -->
     <header-slide :header="page.header" v-if="page.header" />
 
 		<div class="about-us-area">
@@ -86,12 +85,6 @@ export default {
   },
 	data() {
 		return {
-  		path: [
-	  		{
-	  			slug: '/',
-	  			title: 'Home'
-	  		}
-	  	],
 	  	page: {
 	  		title: '...'
 	  	}

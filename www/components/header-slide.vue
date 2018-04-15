@@ -39,7 +39,19 @@ export default {
         const imageHeight = Math.round(imageWidth * 0.75)
         return this.header.image ? `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${this.header.image.handle});`:''
       }
-      return ''
+      return `background-color: ${this.previewColor};`
+    },
+    previewColor() {
+      let color = {
+        r: 246,
+        g: 246,
+        b: 246,
+        a: 1
+      }
+      if (this.header.image && this.header.image.previewColor) {
+        color = JSON.parse(this.header.image.previewColor)
+      }
+      return  `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
     }
   },
   mounted() {

@@ -1,5 +1,5 @@
 <template>
-	<no-ssr>
+	<no-ssr :style="placerholderStyle">
 		<img :src="src" v-if="handle">
 	</no-ssr>
 </template>
@@ -24,6 +24,10 @@ export default {
 			type: Number,
 			default: 0
 		},
+		previewColor: {
+			type: String,
+			default: 'black'
+		}
 	},
 	computed: {
 		size() {
@@ -47,6 +51,11 @@ export default {
 				return ''
 			}
 		},
+		placerholderStyle() {
+			return this.mounted ? '' : `
+				background-color: ${this.previewColor};
+				padding-top:${100*this.aspectRatio}%;`
+		}
 	},
 	data() {
 		return {
