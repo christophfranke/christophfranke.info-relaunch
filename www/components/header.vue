@@ -38,7 +38,7 @@ export default willPrefetch({
 				/// create menu
 				const menu = this.pages.map(page => ({
 					title: page.title,
-					url: `/${page.slug}`
+					url: `/${page.slug}`.replace('/home', '/')
 				}))
 				// insert portfolio
 				menu.splice(2, 0, {
@@ -53,7 +53,7 @@ export default willPrefetch({
 						}))
 					}))
 				})
-				// return!
+
 				return menu
 			}
 
