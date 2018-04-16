@@ -3,9 +3,11 @@
 	  <div class="header-area headroom">
 	    <div class="menu-area">
 	    	<desktop :menu="menu" />
+    	    number: {{ counter }}
 	    </div>
+	    <button @click="printCounter">print counter</button>
 	    <div class="basic-mobile-menu">
-	    	<mobile :menu="menu"/>
+	    	<!-- <mobile :menu="menu"/> -->
 	    </div>
       <div class="logo text-upper">
         <h4><nuxt-link to="/">Christoph Franke</nuxt-link></h4>
@@ -32,7 +34,15 @@ export default willPrefetch({
 			query: query
 		}
 	},
+	methods: {
+		printCounter() {
+			console.log(this.counter)
+		}
+	},
 	computed: {
+    counter() {
+      return this.$store.state.counter
+    },
 		menu() {
 			if (this.pages && this.categories) {
 				/// create menu
