@@ -7,20 +7,16 @@
 
 <script>
 import components from '~/components';
-import projects from '~/apollo/queries/allProjects.gql';
-import categories from '~/apollo/queries/allCategories.gql'
 
 export default {
 	components,
-	apollo: {		
-    projects: {
-      query: projects,
-      prefetch: true
-    },
-    categories: {
-    	query: categories,
-    	prefetch: true
-    }
+	computed: {
+		projects() {
+			return this.$store.state.projects
+		},
+		categories() {
+			return this.$store.state.categories
+		}
 	},
 	data() {
 		return {
@@ -30,8 +26,6 @@ export default {
 	  			title: 'Home'
 	  		}
 	  	],
-			projects: [],
-			categories: [],
 		}
 	}
 }

@@ -15,15 +15,12 @@
 
 <script>
 import components from '~/components';
-import page from '~/apollo/queries/page.gql';
 
 export default {
 	components,
-  apollo: {
-  	page: {
-	    query: page,
-			prefetch: () => ({slug: 'imprint' }),
-      variables: () => ({slug: 'imprint' })
+  computed: {
+  	page() {
+  		return this.$store.state.routes['/imprint']
   	}
   },
 	data() {
@@ -34,9 +31,6 @@ export default {
 	  			title: 'Home'
 	  		}
 	  	],
-	  	page: {
-	  		title: '...'
-	  	}
 		}
 	},
 	head() {

@@ -89,7 +89,6 @@ import { Carousel, Slide } from 'vue-carousel'
 import dateFormat from 'dateformat'
 
 import components from '~/components'
-import query from '~/apollo/queries/project.gql'
 
 
 export default {
@@ -97,25 +96,6 @@ export default {
     Carousel,
     Slide,
     ...components
-  },
-  apollo: {
-  	project: {
-	    query: query,
-			prefetch: ({ route }) => {
-				return {
-					slug: route.params.project
-				}
-			},
-      variables() {
-        return { slug: this.$route.params.project }
-      },
-      update(data) {
-      	if (!data.project) {
-      		this.$router.replace('/404')
-      	}
-      	return data.project
-      }
-  	}
   },
   mounted() {
   	if (window) {
@@ -141,14 +121,20 @@ export default {
   		imageBase: 'https://media.graphcms.com',
 	  	imageWidth: 1400,
 	  	imageHeight: 1400*0.75,
-	  	project: {
-	  		title: '...',
-	  	},
   	}
   },
   computed: {
   	releaseFormatted() {
   		return dateFormat(this.project.releaseDate, 'mmmm dS, yyyy')
+  	},
+  	project() {
+  		const route = `/${this.$route.params.project}`
+  		console.log(route)
+  		if (!this.$store.state.routes[route]) {
+      		this.$router.replace('/404')
+      		return {}
+  		}
+  		return this.$store.state.routes[route]
   	}
   },
   head() {

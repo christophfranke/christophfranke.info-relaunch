@@ -72,24 +72,14 @@ h2 {
 
 <script>
 import components from '~/components';
-import page from '~/apollo/queries/page.gql';
 
 export default {
 	components,
-  apollo: {
-  	page: {
-	    query: page,
-			prefetch: () => ({slug: 'about' }),
-      variables: () => ({slug: 'about' })
+  computed: {
+  	page() {
+  		return this.$store.state.routes['/about']
   	}
   },
-	data() {
-		return {
-	  	page: {
-	  		title: '...'
-	  	}
-		}
-	},
 	head() {
 		return {
 			title: this.page.title

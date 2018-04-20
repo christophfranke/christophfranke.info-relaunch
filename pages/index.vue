@@ -8,42 +8,24 @@
 
 <script>
 import components from '~/components';
-import page from '~/apollo/queries/page.gql'
-import projects from '~/apollo/queries/allProjects.gql'
-import categories from '~/apollo/queries/allCategories.gql'
-
 
 export default {
   components,
-  apollo: {
-  	page: {
-	    query: page,
-			prefetch: () => ({slug: 'home' }),
-      variables: () => ({slug: 'home' })
-  	},
-    projects: {
-      query: projects,
-      prefetch: () => {},
-    },
-    categories: {
-      query: categories,
-      prefetch: () => {},
-    }
-  },
   head() {
   	return {
   		title: this.page.title
   	}
   },
-  data() {
-  	return {
-  		page: {
-  			title: '...'
-  		},
-      projects: [],
-      categories: [],
-      project: []
-  	}
-  }
+  computed: {
+    page() {
+      return this.$store.state.routes['/']
+    },
+    projects() {
+      return this.$store.state.projects
+    },
+    categories() {
+      return this.$store.state.categories
+    }
+  },
 };
 </script>

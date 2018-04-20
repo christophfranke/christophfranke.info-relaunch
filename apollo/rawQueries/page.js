@@ -3,6 +3,7 @@ module.exports = `query page($slug: String!) {
 	  isPublished
 	  title
 	  text
+	  slug
 	  header {
 	  	image {
 	  		handle

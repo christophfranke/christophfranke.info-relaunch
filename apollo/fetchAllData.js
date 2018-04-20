@@ -75,19 +75,25 @@ queryRoutes().then((routes) => {
 	const projects = queryProjects(routes.projects.map(({ slug }) => slug))
 	const categories = queryCategories(routes.categories.map(({ slug }) => slug))
 
-	Promise.all([pages, projects, categories]).then((data) => {
-		return data
-			.reduce((data, list) => {
-				return data.concat(list)
-			}, [])
-			.reduce((data, page) => {
-				console.log('fetched', page.route)
+	Promise.all([pages, projects, categories])
+		.then(([pages, projects, categories]) => {
+				const data =[pages, projects, categories].reduce((data, list) => {
+						return data.concat(list)
+					}, [])
+					.reduce((data, page) => {
+						console.log('fetched', page.route)
+						return {
+							...data,
+							[page.route]: page
+						}
+				}, {})
 				return {
-					...data,
-					[page.route]: page
+					routes: data,
+					pages,
+					projects,
+					categories
 				}
-		}, {})
-	}).then((data) => {		
+	}).then((data) => {
 		return fs.writeFile(`${__dirname}/data/all.json`, JSON.stringify(data))
 	})
 })

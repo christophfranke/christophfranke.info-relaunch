@@ -1,4 +1,5 @@
 import Vuex from 'vuex'
+import data from '../apollo/data/all.json'
 
 
 const resolveQuery = (query, variables) => {
@@ -17,13 +18,19 @@ const resolveQuery = (query, variables) => {
 const createStore = () => {
   return new Vuex.Store({
     state: {
-      route: {}
+      routes: {},
+      pages: {},
+      projects: {},
+      categories: {},
     },
     actions: {
-      nuxtServerInit({ dispatch }, { route }) {
-        console.log('initialized', route.path)
+      nuxtServerInit({ commit, state }, { route }) {
+        state.routes = data.routes
+        state.pages = data.pages
+        state.projects = data.projects
+        state.categories = data.categories
       }
-    }
+    },
   })
 }
 

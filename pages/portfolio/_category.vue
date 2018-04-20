@@ -11,18 +11,11 @@ import category from '~/apollo/queries/category.gql'
 
 export default {
 	components,
-	apollo: {		
-    category: {
-      query: category,
-			prefetch: ({ route }) => {
-				return {
-					slug: route.params.category
-				}
-			},
-      variables() {
-        return { slug: this.$route.params.category }
-      }
-    },
+	computed: {
+		category() {
+			const url = `/portfolio/${this.$route.params.category}`
+			return this.$store.state.routes[url]
+		}
 	},
 	data() {
 		return {
@@ -36,10 +29,6 @@ export default {
 	  			title: 'Portfolio'
 	  		}
 	  	],
-			category: {
-				title: '...',
-				projects: [],
-			}
 		}
 	}
 }
