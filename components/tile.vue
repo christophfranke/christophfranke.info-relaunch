@@ -2,7 +2,7 @@
 	<div class="portfolio-item">
 		<div class="portfolio-wrapper">
 			<div class="portfolio-thumb">
-				<lazy-image :image="project.media[0]" />
+				<lazy-image :image="project.media[0]" :aspectRatio="0.6" />
 			</div>
 			<div class="portfolio-caption">
 				<h4><nuxt-link :to="slug('/', project.slug)">{{ project.title }}</nuxt-link></h4>
