@@ -94,6 +94,6 @@ queryRoutes().then((routes) => {
 					categories
 				}
 	}).then((data) => {
-		return fs.writeFile(`${__dirname}/data/all.json`, JSON.stringify(data))
+		return fs.writeFile(`${__dirname}/data.json`, JSON.stringify(data))
 	})
 })

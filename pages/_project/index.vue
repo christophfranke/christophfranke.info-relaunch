@@ -129,7 +129,6 @@ export default {
   	},
   	project() {
   		const route = `/${this.$route.params.project}`
-  		console.log(route)
   		if (!this.$store.state.routes[route]) {
       		this.$router.replace('/404')
       		return {}

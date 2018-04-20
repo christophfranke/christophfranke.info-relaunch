@@ -1,5 +1,5 @@
 import Vuex from 'vuex'
-import data from '../apollo/data/all.json'
+import data from '../apollo/data.json'
 
 
 const resolveQuery = (query, variables) => {
