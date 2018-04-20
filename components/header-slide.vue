@@ -10,6 +10,7 @@
 </template>
 
 <script>
+import previewColor from '../util/previewColor.js'
 
 export default {
   components: {
@@ -32,25 +33,17 @@ export default {
       return this.traits[0]
     },
     imageStyle() {
-      if (this.mounted) {      
+      let imageUrl = '';
+      if (this.mounted && this.header.image) {
         const imageBase = 'https://media.graphcms.com'
         const imageWidth = this.$el.clientWidth
         const imageHeight = Math.round(imageWidth * 0.75)
-        return this.header.image ? `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${this.header.image.handle});`:''
+        imageUrl = `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${this.header.image.handle});`
       }
-      return `background-color: ${this.previewColor};`
+      return `background-color: ${this.previewColor};${imageUrl}`
     },
     previewColor() {
-      let color = {
-        r: 246,
-        g: 246,
-        b: 246,
-        a: 1
-      }
-      if (this.header.image && this.header.image.previewColor) {
-        color = JSON.parse(this.header.image.previewColor)
-      }
-      return  `rgba(${color.r}, ${color.g}, ${color.b}, ${color.a})`
+      return previewColor(this.header.image)
     }
   },
   mounted() {

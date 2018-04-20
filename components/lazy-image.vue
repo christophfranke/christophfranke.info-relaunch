@@ -1,10 +1,12 @@
 <template>
 	<no-ssr :style="placerholderStyle">
-		<img :src="src" v-if="handle">
+		<img :src="src" v-if="handle" :style="imageStyle">
 	</no-ssr>
 </template>
 
 <script>
+import previewColor from '../util/previewColor.js'
+
 export default {
 	name: 'LazyImage',
 	props: {
@@ -36,6 +38,11 @@ export default {
 				height: Math.round(this.aspectRatio * img.clientWidth)
 			} : null
 		},
+		sizeStyle() {
+			const width = (this.size && this.size.width) ? `width: ${this.size.width}px;` : ''
+			const height = (this.size && this.size.height) ? `height: ${this.size.height}px;` : ''
+			return `${width}${height}`
+		},
 		src() {
 			if (this.handle && this.size) {
 				if (this.size.height) {
@@ -47,16 +54,19 @@ export default {
 				return ''
 			}
 		},
+		previewColor() {
+			return previewColor(this.image)
+		},
 		placerholderStyle() {
-			return this.mounted ? '' : `
-				background-color: ${this.previewColor};
-				padding-top:${100*this.aspectRatio}%;`
+			return  `background-color: ${this.previewColor};`
+		},
+		imageStyle() {
+			return `${this.placerholderStyle}${this.sizeStyle}`
 		}
 	},
 	data() {
 		return {
 			mounted: false,
-			previewColor: this.image.previewColor,
 			handle: this.image.handle
 		}
 	},
