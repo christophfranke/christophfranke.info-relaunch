@@ -6,10 +6,20 @@ body {
   font-style: normal;
   overflow-x: hidden;
 }
-.img,img{
- max-width: 100%;
-transition: all 0.3s ease-out 0s;
+img{
+  max-width: 100%;
+  transition: all 0.3s ease-out 0s;
+  &:before {
+    content: '';
+    width: inherit;
+    height: inherit;
+    max-width: inherit;
+    display: block;
+    position: absolute;
+    background-color: inherit;
+  }
 }
+
 a,
 .button {
   -webkit-transition: all 0.3s ease-out 0s;
