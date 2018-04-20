@@ -31,7 +31,7 @@ export default {
 			/// create menu
 			const menu = this.pages.map(page => ({
 				title: page.title,
-				url: `/${page.slug}`.replace('/home', '/')
+				url: page.route
 			}))
 			// insert portfolio
 			menu.splice(2, 0, {
@@ -39,7 +39,7 @@ export default {
 				url: '/portfolio',
 				sub: this.categories.map(cat => ({
 					title: cat.title,
-					url: `/portfolio/${cat.slug}`,
+					url: cat.route,
 					sub: cat.projects.map(project => ({
 						title: project.title,
 						url: `/${project.slug}`
