@@ -53,7 +53,8 @@ export default {
   },
   data() {
     return {
-      hasBack: false
+      hasBack: false,
+      choice: Math.ceil(4 * Math.random())
     }
   },
   methods: {
@@ -63,8 +64,7 @@ export default {
   },
   computed: {
     cat() {
-      const choice = Math.ceil(4 * Math.random())
-      return `/404-cat-${choice}.gif`
+      return `/404-cat-${this.choice}.gif`
     },
     ctaBack() {
       return {      
@@ -79,5 +79,9 @@ export default {
   		title: 'Oops... 404'
   	}
   },
+  mounted() {
+    this.choice = Math.ceil(4 * Math.random())
+    console.log(this.choice)
+  }
 };
 </script>
