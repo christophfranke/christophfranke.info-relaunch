@@ -7,7 +7,6 @@
 
 <script>
 import components from '~/components';
-import category from '~/apollo/queries/category.gql'
 
 export default {
 	components,
