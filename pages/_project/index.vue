@@ -7,7 +7,7 @@
 				<no-ssr>
 					<carousel :perPage="1" :navigationEnabled="true">
 						<slide v-for="image in project.media" :key="image.id">
-							<img :src="`${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${image.handle}`" />
+							<lazy-image :image="image" :aspectRatio=".5" />
 						</slide>
 					</carousel>
 				</no-ssr>
@@ -97,12 +97,6 @@ export default {
     Slide,
     ...components
   },
-  mounted() {
-  	if (window) {
-  		this.imageWidth = Math.round(window.innerWidth * 0.8);
-  		this.imageHeight = Math.round(this.imageWidth * 0.5);
-  	}
-  },
   methods: {
   	url: (slug) => `/portfolio/${slug}`
   },
@@ -117,10 +111,7 @@ export default {
   			slug: '/portfolio',
   			title: 'Portfolio'
   		}
-  		],
-  		imageBase: 'https://media.graphcms.com',
-	  	imageWidth: 1400,
-	  	imageHeight: 1400*0.75,
+  		]
   	}
   },
   computed: {
@@ -138,7 +129,7 @@ export default {
   },
   head() {
   	return {
-  		title: this.project ? this.project.title : '...'
+  		title: this.project.title
   	}
   }
 }
