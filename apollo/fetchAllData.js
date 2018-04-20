@@ -15,15 +15,15 @@ const resolveQuery = (query, variables) => {
     })
 }
 
-const routes = require('./rawQueries/routes.js')
+const routes = require('./queries/routes.js')
 const queryRoutes = () => {
 	return resolveQuery(routes)
 		.then(({ data }) => data)
 }
 
-const page = require('./rawQueries/page.js')
-const project = require('./rawQueries/project.js')
-const category = require('./rawQueries/category.js')
+const page = require('./queries/page.js')
+const project = require('./queries/project.js')
+const category = require('./queries/category.js')
 const querySlugs = (slugs, query, routeCallback, fieldName) => {
   return Promise.all(
     slugs.map(slug => {
