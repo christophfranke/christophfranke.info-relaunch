@@ -12,7 +12,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@nuxtjs/apollo": "^3.0.6",
     "apollo-fetch": "^0.7.0",
     "apollo-link-http": "^1.5.3",
     "dateformat": "^3.0.3",
