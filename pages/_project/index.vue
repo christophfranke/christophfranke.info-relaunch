@@ -80,7 +80,7 @@ img {
 	width: calc(50% - 30px);
 }
 .portfolio-view-btn {
-	margin-top: 20px;
+	margin: 20px 0;
 }
 </style>
 
