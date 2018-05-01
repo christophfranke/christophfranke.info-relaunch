@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nuxt",
+    "dev": "node apollo/fetchAllData.js && nuxt",
     "build": "nuxt generate",
     "fetch": "node apollo/fetchAllData.js"
   },
