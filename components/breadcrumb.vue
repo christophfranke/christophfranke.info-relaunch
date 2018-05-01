@@ -4,7 +4,7 @@
 			<div class="basic-breadcrumb text-center">
 				<h3 class="">{{ title }}</h3>
 				<ol class="breadcrumb text-xs" v-if="path.length > 0">
-					<li v-for="(item, index) in path" :key="path.slug" :class="{ hasDelimiter: index > 0 }">
+					<li v-for="(item, index) in path" :key="item.slug" :class="{ hasDelimiter: index > 0 }">
 						<nuxt-link :to="item.slug">{{ item.title }}</nuxt-link>
 					</li>
 					<li class="active hasDelimiter">{{ title }}</li>
