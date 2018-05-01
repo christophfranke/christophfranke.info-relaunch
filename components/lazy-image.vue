@@ -58,7 +58,8 @@ export default {
 			return previewColor(this.image)
 		},
 		placerholderStyle() {
-			return  `background-color: ${this.previewColor};`
+			const heightStyle = this.aspectRatio ? `padding-top: ${this.aspectRatio * 100}%` : ''
+			return  `background-color: ${this.previewColor};${heightStyle}`
 		},
 		imageStyle() {
 			return `${this.placerholderStyle}${this.sizeStyle}`
