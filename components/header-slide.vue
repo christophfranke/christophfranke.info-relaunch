@@ -1,7 +1,7 @@
 <template>
   <div class="basic-slider" :style="imageStyle">
     <div class="container">
-      <div class="slider-content">
+      <div :class="sliderContentClasses">
         <span v-html="header.text"></span>
         <call-to-action :cta="header.callToAction"  v-if="header.callToAction" />
       </div>
@@ -44,6 +44,12 @@ export default {
     },
     previewColor() {
       return previewColor(this.header.image)
+    },
+    sliderContentClasses() {
+      return [
+        "slider-content",
+        this.header.colorTheme,
+      ]
     }
   },
   mounted() {
@@ -55,12 +61,22 @@ export default {
 <style lang="scss">
 @import '../scss/partials/slider';
 
-.slider-content {
-  padding: 0 15px;
-  width: 92.5vw;
-  margin: 0 auto;
-  h1, h2, h3, h4, h5, h6, p {
+h1, h2, h3, h4, h5, h6, p {
+  .Light & {
     color: white;
+  }
+  .Dark & {
+    color: #232332;
+  }
+}
+.slider-content {
+  padding: 15px;
+  margin: 0 auto;
+  &.Dark {
+    box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.4);
+    background-color: rgba(255, 255, 255, 0.4);
+  }
+  h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 0;
   }
 }

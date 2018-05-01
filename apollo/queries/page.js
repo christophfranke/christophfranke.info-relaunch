@@ -10,6 +10,7 @@ module.exports = `query page($slug: String!) {
 	  		previewColor
 	  	}
 	  	text
+	  	colorTheme
 	  	callToAction {
 	  		text
 	  		url
