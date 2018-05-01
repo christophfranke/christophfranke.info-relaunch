@@ -73,8 +73,8 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 15px;
   margin: 0 auto;
   &.Dark {
-    box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.4);
-    background-color: rgba(255, 255, 255, 0.4);
+    box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.5s);
+    background-color: rgba(255, 255, 255, 0.5);
   }
   h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 0;

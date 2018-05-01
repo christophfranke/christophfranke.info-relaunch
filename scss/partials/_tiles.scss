@@ -4,9 +4,8 @@
   position: relative;
 }
 .portfolio-item{
-  width: 33.33%;
-    /*float: left;*/
-    margin-bottom: 20px;  
+  width: calc(33% - 20px);
+  margin-bottom: 20px;  
 }
 .portfolio-thumb img {
   width: 100%;
