@@ -14,6 +14,7 @@ module.exports = `query project($slug: String!) {
 	  media {
 	    sort
 	    handle
+	    previewColor
 	  }
 	  features(filter: {isPublished: true}) {
 	    title
