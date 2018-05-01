@@ -57,12 +57,15 @@ export default {
 		previewColor() {
 			return previewColor(this.image)
 		},
+		backgroundStyle() {
+			return  `background-color: ${this.previewColor};`
+		},
 		placerholderStyle() {
-			const heightStyle = this.aspectRatio ? `padding-top: ${this.aspectRatio * 100}%` : ''
-			return  `background-color: ${this.previewColor};${heightStyle}`
+			const heightStyle = process.server && this.aspectRatio ? `padding-top: ${this.aspectRatio * 100}%;` : ''
+			return `${this.backgroundStyle}${heightStyle};`;
 		},
 		imageStyle() {
-			return `${this.placerholderStyle}${this.sizeStyle}`
+			return `${this.backgroundStyle}${this.sizeStyle}`
 		}
 	},
 	data() {
