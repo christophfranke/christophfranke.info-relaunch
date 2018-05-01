@@ -1,38 +1,99 @@
 <template>
-	<div class="basic-portfolio-area">
+	<div class="tiles">
 		<div class="container">
 			<div class="filter-menu" v-if="categories.length > 0">
 				<button :class="{ active: !filter }" @click="setFilter('')">All</button>
 				<button :class="{ active: filter == category.slug }" v-for="category in categories" @click="setFilter(category.slug)">{{ category.title }}</button>
-			</div>			
+			</div>
 
-			<div class="row-portfolio portfolio-style-2 portfolio-style-3">
-				<transition-group name="tiles" class="tiles-container" tag="div">
-					<tile v-for="project in filteredProjects" :project="project" :key="project.slug" />
-				</transition-group>
+			<div class="container list-wrapper">
+			  <transition-group name="list-complete">
+			    <span
+			      v-for="project in filteredProjects"
+			      v-bind:key="project.slug"
+			      class="list-complete-project"
+			    >
+				    <span class="project-inner">
+				    	<nuxt-link :to="slug('/', project.slug)">
+				    		<lazy-image :image="project.media[0]" :aspectRatio="0.6" />
+				    		<span class="details">
+				    			<h4>{{ project.title }}</h4>
+									<span class="categories">
+										<span v-for="(category, index) in project.categories" :key="category.slug">
+											<span style="display:inline" v-if="index > 0">, </span>
+											{{ category.tagName }}
+										</span>
+									</span>
+				    		</span>
+				    	</nuxt-link>
+				    </span>
+			    </span>
+			  </transition-group>
 			</div>
 		</div>
 	</div>
 </template>
 
 <style lang="scss" scoped>
-.row-portfolio {
+.tiles {
+	margin: 90px 0;
+}
+.list-wrapper {
 	position: relative;
 }
-.tiles-container {
-	display: flex;
-	flex-wrap: wrap;	
-}
-.portfolio-item {
-	transition: all .3s ease-in-out;
-}
-.tiles-enter, .tiles-leave-to {
-	transform: scale3D(0, 0, 0);
-}
-.tiles-leave-active {
+.categories {
 	position: absolute;
+	bottom: 20px;
+	left: 20px;
+	display: flex;
+	font-size: 16px;
+	width: calc(100% - 40px);
 }
-
+.list-complete-project {
+  transition: all .5s ease-out;
+  display: inline-block;
+  width: calc(33% - 20px);
+  margin-right: 20px;
+  margin-bottom: 20px;
+	position: relative;
+	img {
+		display: block;
+	}
+  .details {
+  	border: 1px solid rgba(68, 68, 68, 0.1);
+  	position: absolute;
+  	top: 0;
+  	bottom: 0;
+  	left: 0;
+  	right: 0;
+  	opacity: 0;
+  	background-color: rgba(255, 255, 255, 0.75);
+  	transition: opacity .3s;
+  	display: flex;
+  	align-items: center;
+  	justify-content: center;
+  	h4 {
+		  font-size: 18px;
+		  font-weight: 500;
+		  letter-spacing: 1px;
+		  padding: 0 20px;
+  	}
+  }
+  a:hover {
+  	.details {
+  		opacity: 1;
+  	}
+  }
+}
+.list-complete-enter, .list-complete-leave-to {
+  opacity: 0;
+  img {
+  	transform: scale3D(0, 0, 1);
+  }
+}
+.list-complete-leave-active {
+  position: absolute;
+}
 
 .basic-portfolio-area {
 	padding: 90px 0;
@@ -60,7 +121,7 @@
 		  opacity: 0;
 		  position: absolute;
 		  right: 0;
-		  transition: all 0.3s ease 0s;
+		  transition: all .5s ease-in-out 0s;
 		  width: 20px;
 		}
 		&.active:after,
@@ -72,11 +133,11 @@
 </style>
 
 <script>
-import tile from './tile.vue';
+import lazyImage from './lazy-image.vue';
 
 export default {
 	components: {
-		tile
+		lazyImage
 	},
 	props: {
 		projects: {
@@ -91,12 +152,18 @@ export default {
 	data() {
 		return {
 			filter: '',
+	    items: [1,2,3,4,5,6,7,8,9],
+	    nextNum: 10
 		}
 	},
 	methods: {
 		setFilter(slug) {
 			this.filter = slug;
-		}
+		},
+    randomIndex: function () {
+      return Math.floor(Math.random() * this.items.length)
+    },
+		slug: (path, slug) => `${path}${slug}`
 	},
 	computed: {
 		filteredProjects() {

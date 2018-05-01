@@ -2,9 +2,9 @@
 .row-portfolio .portfolio-item{padding: 0 10px;}
 .portfolio-wrapper {
   position: relative;
+  width: 100%;
 }
 .portfolio-item{
-  width: calc(33% - 20px);
   margin-bottom: 20px;  
 }
 .portfolio-thumb img {

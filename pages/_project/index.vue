@@ -18,7 +18,7 @@
 					<ul>
 						<li>Categories:
 							<span v-for="(category, index) in project.categories">
-								<span v-if="index > 0">, </span><nuxt-link :to="url(category.slug)">{{ category.tagName }}</nuxt-link>
+								<span v-if="index > 0">, </span><nuxt-link :to="url(category.slug)">{{ category.title }}</nuxt-link>
 							</span>
 						</li>
 						<li v-if="project.releaseDate">Released: {{ releaseFormatted }}</li>

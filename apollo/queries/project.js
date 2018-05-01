@@ -6,6 +6,7 @@ module.exports = `query project($slug: String!) {
 	  projectURL
 	  slug
 	  categories {
+	  	title
 	  	tagName
 	  	slug
 	  }
