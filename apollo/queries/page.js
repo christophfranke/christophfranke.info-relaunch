@@ -27,7 +27,7 @@ module.exports = `query page($slug: String!) {
 	  	url
 	  	internalLink
 	  }
-	  features {
+	  features(orderBy: sort_ASC) {
 	    title
 	    description
 	    link

@@ -15,7 +15,7 @@ module.exports = `query project($slug: String!) {
 	    handle
 	    previewColor
 	  }
-	  features {
+	  features(orderBy: sort_ASC) {
 	    title
 	    description
 	  }
