@@ -61,8 +61,8 @@ export default {
 <style lang="scss">
 @import '../scss/partials/slider';
 
-h1, h2, h3, h4, h5, h6, p {
-  .Light & {
+h1, h2, h3, h4, h5, h6, p, .btn {
+  .Light &, .LightWithBackground & {
     color: white;
   }
   .Dark & {
@@ -70,11 +70,11 @@ h1, h2, h3, h4, h5, h6, p {
   }
 }
 .slider-content {
+  display: inline-block;
   padding: 15px;
   margin: 0 auto;
-  &.Dark {
-    box-shadow: 0 0 100px 50px rgba(255, 255, 255, 0.5s);
-    background-color: rgba(255, 255, 255, 0.5);
+  &.LightWithBackground {
+    background-color: rgba(0, 0, 0, 0.3);
   }
   h1, h2, h3, h4, h5, h6, p {
     margin-bottom: 0;

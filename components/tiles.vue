@@ -7,7 +7,7 @@
 			</div>
 
 			<div class="container list-wrapper">
-			  <transition-group name="list-complete">
+			  <transition-group name="list-complete" class="transition-wrapper">
 			    <span
 			      v-for="project in filteredProjects"
 			      v-bind:key="project.slug"
@@ -41,6 +41,10 @@
 .list-wrapper {
 	position: relative;
 }
+.transition-wrapper {
+	display: flex;
+	flex-wrap: wrap;
+}
 .categories {
 	position: absolute;
 	bottom: 20px;
@@ -50,7 +54,7 @@
 	width: calc(100% - 40px);
 }
 .list-complete-project {
-  transition: all .5s ease-out;
+  transition: transform .3s ease-out, opacity .3s ease-out;
   display: inline-block;
   width: calc(33% - 20px);
   margin-right: 20px;
@@ -121,7 +125,7 @@
 		  opacity: 0;
 		  position: absolute;
 		  right: 0;
-		  transition: all .5s ease-in-out 0s;
+		  // transition: all .5s ease-in-out 0s;
 		  width: 20px;
 		}
 		&.active:after,

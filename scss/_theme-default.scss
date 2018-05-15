@@ -8,7 +8,7 @@ body {
 }
 img{
   max-width: 100%;
-  transition: all 0.3s ease-out 0s;
+  transition: all .3s ease-out 0s;
   &:before {
     content: '';
     width: inherit;
