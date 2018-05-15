@@ -27,6 +27,11 @@ export default {
 	  		}
 	  	],
 		}
-	}
+	},
+  head() {
+  	return {
+  		title: 'Portfolio'
+  	}
+  },
 }
 </script>

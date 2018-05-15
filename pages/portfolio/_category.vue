@@ -29,6 +29,11 @@ export default {
 	  		}
 	  	],
 		}
-	}
+	},
+  head() {
+  	return {
+  		title: `Portfolio - ${this.category.title}`,
+  	}
+  }
 }
 </script>
