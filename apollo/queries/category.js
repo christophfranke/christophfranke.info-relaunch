@@ -5,8 +5,7 @@ module.exports = `query category($slug: String!) {
 		projects {
 		  title
 		  slug
-		  media {
-		    sort
+		  media(orderBy: sort_ASC) {
 		    handle
 		    previewColor
 		  }

@@ -11,12 +11,11 @@ module.exports = `query project($slug: String!) {
 	  	slug
 	  }
 	  client
-	  media {
-	    sort
+	  media(orderBy: sort_ASC) {
 	    handle
 	    previewColor
 	  }
-	  features(filter: {isPublished: true}) {
+	  features {
 	    title
 	    description
 	  }
