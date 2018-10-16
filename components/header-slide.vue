@@ -38,7 +38,7 @@ export default {
         const imageBase = 'https://media.graphcms.com'
         const imageWidth = this.$el.clientWidth
         const imageHeight = Math.round(imageWidth * 0.75)
-        imageUrl = `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:top,h:${imageHeight}/${this.header.image.handle});`
+        imageUrl = `background-image: url(${imageBase}/resize=w:${imageWidth},fit:crop,align:center,h:${imageHeight}/${this.header.image.handle});`
       }
       return `background-color: ${this.previewColor};${imageUrl}`
     },
