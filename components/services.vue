@@ -8,7 +8,10 @@
           </a>
         </div>
         <div class="service-content">
-          <h3><a :href="service.link" target="_blank">{{ service.title }}</a></h3>
+          <h3>
+            <a :href="service.link" target="_blank" v-if="service.link">{{ service.title }}</a>
+            <span v-else>{{ service.title }}</span>
+          </h3>
           <markdown :content="service.description" />
         </div>
       </div>
